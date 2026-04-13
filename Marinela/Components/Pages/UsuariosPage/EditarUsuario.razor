@@ -1,0 +1,122 @@
+@page "/Editar-usuario/{idUsuario:guid}"
+@using Marinela.Models.Roles
+@using Marinela.Models.Usuarios
+@using Marinela.ViewModels.RolController
+@using Marinela.ViewModels.UsuarioController
+@inject UsuarioService UsuarioService
+@inject RolService RolService
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+<h3>Editar Usuario</h3>
+
+@if (!string.IsNullOrEmpty(mensaje))
+{
+    <div class="alert @(exito ? "alert-success" : "alert-danger")">
+        @mensaje
+    </div>
+}
+
+@if (usuario == null)
+{
+    <p>Cargando usuario...</p>
+}
+else
+{
+    <EditForm Model="usuario" OnValidSubmit="ActualizarUsuario">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label for="nombre">Nombre</label>
+            <InputText id="nombre" class="form-control" @bind-Value="usuario.Nombre" />
+        </div>
+
+        <div class="mb-3">
+            <label for="username">Usuario</label>
+            <InputText id="username" class="form-control" @bind-Value="usuario.UserName" />
+        </div>
+
+        <div class="mb-3">
+            <label for="email">Correo</label>
+            <InputText id="email" class="form-control" @bind-Value="usuario.Email" />
+        </div>
+
+        <div class="mb-3">
+            <label for="rol">Rol</label>
+            <InputSelect id="rol" class="form-control" @bind-Value="usuario.IdRol">
+                <option value="">-- Selecciona un rol --</option>
+                @foreach (var rol in roles)
+                {
+                    <option value="@rol.IdRol">@rol.NombreRol</option>
+                }
+            </InputSelect>
+        </div>
+        <button type="submit" class="btn btn-primary" disabled=@guardando>@(guardando ? "Guardando..." : "Editar")</button>
+        <button type="button" class="btn btn-secondary" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public Guid idUsuario { get; set; }
+
+    private Usuario? usuario;
+    private List<Rol> roles = new();
+    private string mensaje = string.Empty;
+    private bool exito = false;
+    private bool guardando = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Cargar usuario por Guid
+            usuario = await UsuarioService.ObtenerUsuarioPorGuid(idUsuario);
+
+            // Cargar roles
+            roles = await RolService.ObtenerTodosRolesAsync();
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error al cargar datos: {ex.Message}";
+            Snackbar.Add($"Error al cargar datos: {ex.Message}", Severity.Error);
+            usuario = new Usuario();
+            roles = new List<Rol>();
+        }
+    }
+
+    private async Task ActualizarUsuario()
+    {
+        guardando = true;
+        try
+        {
+            var resultado = await UsuarioService.ActualizarUsuarioAsync(usuario!);
+
+            if (resultado.Exito)
+            {
+                exito = true;
+                mensaje = "Usuario actualizado exitosamente.";
+                Snackbar.Add("Registro actualizado correctamente", Severity.Success);
+                NavigationManager.NavigateTo("/usuarios-list");
+            }
+            else
+            {
+                guardando = false;
+                exito = false;
+                mensaje = resultado.Error ?? "Error desconocido al actualizar usuario.";
+                Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            guardando = false;
+            exito = false;
+            mensaje = $"Error inesperado: {ex.Message}";
+            Snackbar.Add($"Error inesperado: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/usuarios-list");
+    }
+}

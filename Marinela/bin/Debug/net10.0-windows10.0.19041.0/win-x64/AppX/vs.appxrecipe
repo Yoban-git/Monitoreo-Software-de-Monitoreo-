@@ -1,0 +1,1835 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-7HKQF3L</Machine>
+    <WindowsUser>Asus</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>x64</PackageArchitecture>
+    <PackageIdentityName>DataSoft</PackageIdentityName>
+    <PackageIdentityPublisher>CN=DataSoft</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\</IntermediateOutputPath>
+    <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\Users\Asus\Documents\Visual Studio 2017\Marinela\bin\Debug\net10.0-windows10.0.19041.0\win-x64\AppX</LayoutDir>
+    <RegisteredManifestChecksum>9267EB7283C5BD1457B97489EB5A5A69A3EEEF614E1F2883D1085011856EBF85</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>DataSoft_1.2.6.0_x64__nhh2fstnb96j4</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>DataSoft_nhh2fstnb96j4!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>DataSoft</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=DataSoft</RegisteredPackagePublisher>
+    <RegisteredVersion>1.2.6.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\bin\Debug\net10.0-windows10.0.19041.0\win-x64\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2026-04-13T17:39:37.005</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\bin\Debug\net10.0-windows10.0.19041.0\win-x64\Marinela.runtimeconfig.json">
+      <PackagePath>Marinela.runtimeconfig.json</PackagePath>
+      <Modified>2026-04-10T15:29:13.740</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\apphost.exe">
+      <PackagePath>Marinela.exe</PackagePath>
+      <Modified>2026-04-13T17:39:34.647</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\Resources\Raw\AboutAssets.txt">
+      <PackagePath>AboutAssets.txt</PackagePath>
+      <Modified>2026-03-03T15:33:01.586</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview\10.0.0\staticwebassets\blazor.modules.json">
+      <PackagePath>wwwroot\_framework\blazor.modules.json</PackagePath>
+      <Modified>2025-10-23T22:45:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview\10.0.0\staticwebassets\blazor.webview.js">
+      <PackagePath>wwwroot\_framework\blazor.webview.js</PackagePath>
+      <Modified>2025-10-24T01:06:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\Images\Osito_Bimbo-dialogo.png">
+      <PackagePath>wwwroot\Images\Osito_Bimbo-dialogo.png</PackagePath>
+      <Modified>2026-03-02T17:44:02.189</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\Images\osito_bimbo.png">
+      <PackagePath>wwwroot\Images\osito_bimbo.png</PackagePath>
+      <Modified>2026-02-25T19:05:35.073</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\app.css">
+      <PackagePath>wwwroot\app.css</PackagePath>
+      <Modified>2026-03-03T15:33:01.594</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\audio\-Error-.mp3">
+      <PackagePath>wwwroot\audio\-Error-.mp3</PackagePath>
+      <Modified>2026-03-17T17:25:00.746</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\audio\alert.mp3">
+      <PackagePath>wwwroot\audio\alert.mp3</PackagePath>
+      <Modified>2026-03-17T16:26:53.203</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\index.html">
+      <PackagePath>wwwroot\index.html</PackagePath>
+      <Modified>2026-03-17T16:31:12.061</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\js\alarma.js">
+      <PackagePath>wwwroot\js\alarma.js</PackagePath>
+      <Modified>2026-03-17T16:31:15.601</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css">
+      <PackagePath>wwwroot\lib\bootstrap\dist\css\bootstrap.min.css</PackagePath>
+      <Modified>2026-03-03T15:33:01.611</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map">
+      <PackagePath>wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map</PackagePath>
+      <Modified>2026-03-03T15:33:01.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+      <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.386</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+      <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.407</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+      <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.435</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+      <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.475</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+      <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.619</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\f\OpenSans-Regular.ttf">
+      <PackagePath>OpenSans-Regular.ttf</PackagePath>
+      <Modified>2026-03-03T15:33:01.582</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appicon.ico">
+      <PackagePath>appicon.ico</PackagePath>
+      <Modified>2026-04-06T19:35:34.877</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+      <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.861</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+      <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.861</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+      <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.860</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+      <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.860</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+      <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.860</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.872</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.871</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.870</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.871</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.871</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
+      <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.874</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
+      <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.873</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
+      <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.872</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
+      <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.873</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
+      <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.873</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.scale-100.png">
+      <PackagePath>appiconLogo.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.877</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.scale-125.png">
+      <PackagePath>appiconLogo.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.876</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.scale-150.png">
+      <PackagePath>appiconLogo.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.876</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.scale-200.png">
+      <PackagePath>appiconLogo.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.875</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.scale-400.png">
+      <PackagePath>appiconLogo.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.875</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.targetsize-16.png">
+      <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.875</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.targetsize-24.png">
+      <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.875</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.targetsize-256.png">
+      <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.874</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.targetsize-32.png">
+      <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.874</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconLogo.targetsize-48.png">
+      <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.874</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+      <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.865</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+      <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.865</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+      <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.864</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+      <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.864</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+      <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.863</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+      <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.867</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+      <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.867</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+      <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.866</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+      <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.866</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+      <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.865</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+      <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.870</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+      <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.870</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+      <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.868</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+      <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.868</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+      <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.868</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-100.png">
+      <PackagePath>appiconWideTile.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.863</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-125.png">
+      <PackagePath>appiconWideTile.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.863</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-150.png">
+      <PackagePath>appiconWideTile.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.862</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-200.png">
+      <PackagePath>appiconWideTile.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.862</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-400.png">
+      <PackagePath>appiconWideTile.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.861</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-100.png">
+      <PackagePath>dotnet_bot.scale-100.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.860</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-125.png">
+      <PackagePath>dotnet_bot.scale-125.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.859</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-150.png">
+      <PackagePath>dotnet_bot.scale-150.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.859</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-200.png">
+      <PackagePath>dotnet_bot.scale-200.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.859</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-400.png">
+      <PackagePath>dotnet_bot.scale-400.png</PackagePath>
+      <Modified>2026-04-06T19:35:34.858</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\appsettings.json">
+      <PackagePath>appsettings.json</PackagePath>
+      <Modified>2026-03-06T19:45:38.259</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Black.ttf">
+      <PackagePath>LatoFont\Lato-Black.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-BlackItalic.ttf">
+      <PackagePath>LatoFont\Lato-BlackItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Bold.ttf">
+      <PackagePath>LatoFont\Lato-Bold.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-BoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-BoldItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-ExtraBold.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBold.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-ExtraBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBoldItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-ExtraLight.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLight.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-ExtraLightItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLightItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Italic.ttf">
+      <PackagePath>LatoFont\Lato-Italic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Light.ttf">
+      <PackagePath>LatoFont\Lato-Light.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-LightItalic.ttf">
+      <PackagePath>LatoFont\Lato-LightItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Medium.ttf">
+      <PackagePath>LatoFont\Lato-Medium.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-MediumItalic.ttf">
+      <PackagePath>LatoFont\Lato-MediumItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Regular.ttf">
+      <PackagePath>LatoFont\Lato-Regular.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-SemiBold.ttf">
+      <PackagePath>LatoFont\Lato-SemiBold.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-SemiBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-SemiBoldItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-Thin.ttf">
+      <PackagePath>LatoFont\Lato-Thin.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\Lato-ThinItalic.ttf">
+      <PackagePath>LatoFont\Lato-ThinItalic.ttf</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\LatoFont\OFL.txt">
+      <PackagePath>LatoFont\OFL.txt</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Marinela.dll">
+      <PackagePath>Marinela.dll</PackagePath>
+      <Modified>2026-04-13T17:39:34.616</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
+      <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
+      <Modified>2024-11-11T17:23:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\WinRT.Runtime.dll">
+      <PackagePath>WinRT.Runtime.dll</PackagePath>
+      <Modified>2024-11-11T17:23:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\azure.core\1.47.1\lib\net8.0\Azure.Core.dll">
+      <PackagePath>Azure.Core.dll</PackagePath>
+      <Modified>2025-07-15T16:24:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\azure.identity\1.14.2\lib\net8.0\Azure.Identity.dll">
+      <PackagePath>Azure.Identity.dll</PackagePath>
+      <Modified>2025-07-11T00:17:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\bcrypt.net-next\4.1.0\lib\net10.0\BCrypt.Net-Next.dll">
+      <PackagePath>BCrypt.Net-Next.dll</PackagePath>
+      <Modified>2026-02-16T11:44:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\lib\net10.0\Blazor-ApexCharts.dll">
+      <PackagePath>Blazor-ApexCharts.dll</PackagePath>
+      <Modified>2026-01-17T17:08:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\bouncycastle.cryptography\2.6.2\lib\net6.0\BouncyCastle.Cryptography.dll">
+      <PackagePath>BouncyCastle.Cryptography.dll</PackagePath>
+      <Modified>2025-07-31T11:17:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\closedxml\0.105.0\lib\netstandard2.1\ClosedXML.dll">
+      <PackagePath>ClosedXML.dll</PackagePath>
+      <Modified>2025-05-14T20:51:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\closedxml.parser\2.0.0\lib\netstandard2.1\ClosedXML.Parser.dll">
+      <PackagePath>ClosedXML.Parser.dll</PackagePath>
+      <Modified>2025-04-03T23:11:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\documentformat.openxml\3.1.1\lib\net8.0\DocumentFormat.OpenXml.dll">
+      <PackagePath>DocumentFormat.OpenXml.dll</PackagePath>
+      <Modified>2024-10-15T19:18:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\documentformat.openxml.framework\3.1.1\lib\net8.0\DocumentFormat.OpenXml.Framework.dll">
+      <PackagePath>DocumentFormat.OpenXml.Framework.dll</PackagePath>
+      <Modified>2024-10-15T19:18:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\excelnumberformat\1.1.0\lib\netstandard2.0\ExcelNumberFormat.dll">
+      <PackagePath>ExcelNumberFormat.dll</PackagePath>
+      <Modified>2020-10-02T08:42:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\google.protobuf\3.32.0\lib\net5.0\Google.Protobuf.dll">
+      <PackagePath>Google.Protobuf.dll</PackagePath>
+      <Modified>2025-08-14T17:02:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\k4os.compression.lz4\1.3.8\lib\net6.0\K4os.Compression.LZ4.dll">
+      <PackagePath>K4os.Compression.LZ4.dll</PackagePath>
+      <Modified>2024-03-17T21:56:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\k4os.compression.lz4.streams\1.3.8\lib\net6.0\K4os.Compression.LZ4.Streams.dll">
+      <PackagePath>K4os.Compression.LZ4.Streams.dll</PackagePath>
+      <Modified>2024-03-17T21:56:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\k4os.hash.xxhash\1.0.8\lib\net6.0\K4os.Hash.xxHash.dll">
+      <PackagePath>K4os.Hash.xxHash.dll</PackagePath>
+      <Modified>2022-11-08T18:08:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.authorization\10.0.1\lib\net10.0\Microsoft.AspNetCore.Authorization.dll">
+      <PackagePath>Microsoft.AspNetCore.Authorization.dll</PackagePath>
+      <Modified>2025-11-19T16:20:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components\10.0.1\lib\net10.0\Microsoft.AspNetCore.Components.dll">
+      <PackagePath>Microsoft.AspNetCore.Components.dll</PackagePath>
+      <Modified>2025-11-19T16:20:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.forms\10.0.1\lib\net10.0\Microsoft.AspNetCore.Components.Forms.dll">
+      <PackagePath>Microsoft.AspNetCore.Components.Forms.dll</PackagePath>
+      <Modified>2025-11-19T16:20:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.web\10.0.1\lib\net10.0\Microsoft.AspNetCore.Components.Web.dll">
+      <PackagePath>Microsoft.AspNetCore.Components.Web.dll</PackagePath>
+      <Modified>2025-11-19T16:20:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview\10.0.0\lib\net10.0\Microsoft.AspNetCore.Components.WebView.dll">
+      <PackagePath>Microsoft.AspNetCore.Components.WebView.dll</PackagePath>
+      <Modified>2025-10-24T01:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview.maui\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.AspNetCore.Components.WebView.Maui.dll">
+      <PackagePath>Microsoft.AspNetCore.Components.WebView.Maui.dll</PackagePath>
+      <Modified>2026-03-18T17:05:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.metadata\10.0.1\lib\net10.0\Microsoft.AspNetCore.Metadata.dll">
+      <PackagePath>Microsoft.AspNetCore.Metadata.dll</PackagePath>
+      <Modified>2025-11-19T16:20:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.bcl.asyncinterfaces\8.0.0\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll">
+      <PackagePath>Microsoft.Bcl.AsyncInterfaces.dll</PackagePath>
+      <Modified>2023-10-31T14:58:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.bcl.cryptography\9.0.4\lib\net9.0\Microsoft.Bcl.Cryptography.dll">
+      <PackagePath>Microsoft.Bcl.Cryptography.dll</PackagePath>
+      <Modified>2025-03-13T22:05:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll">
+      <PackagePath>Microsoft.Data.SqlClient.dll</PackagePath>
+      <Modified>2025-08-14T21:28:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.entityframeworkcore\10.0.5\lib\net10.0\Microsoft.EntityFrameworkCore.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.dll</PackagePath>
+      <Modified>2026-03-03T19:54:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.entityframeworkcore.abstractions\10.0.5\lib\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.Abstractions.dll</PackagePath>
+      <Modified>2026-03-03T19:54:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.entityframeworkcore.relational\10.0.5\lib\net10.0\Microsoft.EntityFrameworkCore.Relational.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.Relational.dll</PackagePath>
+      <Modified>2026-03-03T19:54:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.entityframeworkcore.sqlserver\10.0.5\lib\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.SqlServer.dll</PackagePath>
+      <Modified>2026-03-03T19:55:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.caching.abstractions\10.0.5\lib\net10.0\Microsoft.Extensions.Caching.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Caching.Abstractions.dll</PackagePath>
+      <Modified>2026-03-03T19:16:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.caching.memory\10.0.5\lib\net10.0\Microsoft.Extensions.Caching.Memory.dll">
+      <PackagePath>Microsoft.Extensions.Caching.Memory.dll</PackagePath>
+      <Modified>2026-03-03T19:21:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.configuration\10.0.1\lib\net10.0\Microsoft.Extensions.Configuration.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.dll</PackagePath>
+      <Modified>2025-11-19T15:31:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.configuration.abstractions\10.0.5\lib\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Abstractions.dll</PackagePath>
+      <Modified>2026-03-03T19:16:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.configuration.binder\10.0.1\lib\net10.0\Microsoft.Extensions.Configuration.Binder.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Binder.dll</PackagePath>
+      <Modified>2025-11-19T15:33:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.configuration.fileextensions\10.0.0\lib\net10.0\Microsoft.Extensions.Configuration.FileExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.FileExtensions.dll</PackagePath>
+      <Modified>2025-10-24T00:20:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.configuration.json\10.0.0\lib\net10.0\Microsoft.Extensions.Configuration.Json.dll">
+      <PackagePath>Microsoft.Extensions.Configuration.Json.dll</PackagePath>
+      <Modified>2025-10-24T00:21:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.dependencyinjection\10.0.5\lib\net10.0\Microsoft.Extensions.DependencyInjection.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.dll</PackagePath>
+      <Modified>2026-03-03T19:16:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\10.0.5\lib\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.DependencyInjection.Abstractions.dll</PackagePath>
+      <Modified>2026-03-03T19:15:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.diagnostics\10.0.1\lib\net10.0\Microsoft.Extensions.Diagnostics.dll">
+      <PackagePath>Microsoft.Extensions.Diagnostics.dll</PackagePath>
+      <Modified>2025-11-19T15:35:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.diagnostics.abstractions\10.0.1\lib\net10.0\Microsoft.Extensions.Diagnostics.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Diagnostics.Abstractions.dll</PackagePath>
+      <Modified>2025-11-19T15:30:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.fileproviders.abstractions\10.0.0\lib\net10.0\Microsoft.Extensions.FileProviders.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Abstractions.dll</PackagePath>
+      <Modified>2025-10-24T00:12:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.fileproviders.composite\10.0.0\lib\net10.0\Microsoft.Extensions.FileProviders.Composite.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Composite.dll</PackagePath>
+      <Modified>2025-10-24T00:14:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.fileproviders.embedded\10.0.0\lib\net10.0\Microsoft.Extensions.FileProviders.Embedded.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Embedded.dll</PackagePath>
+      <Modified>2025-10-24T01:08:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.fileproviders.physical\10.0.0\lib\net10.0\Microsoft.Extensions.FileProviders.Physical.dll">
+      <PackagePath>Microsoft.Extensions.FileProviders.Physical.dll</PackagePath>
+      <Modified>2025-10-24T00:19:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.filesystemglobbing\10.0.0\lib\net10.0\Microsoft.Extensions.FileSystemGlobbing.dll">
+      <PackagePath>Microsoft.Extensions.FileSystemGlobbing.dll</PackagePath>
+      <Modified>2025-10-24T00:14:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.hosting.abstractions\10.0.0\lib\net10.0\Microsoft.Extensions.Hosting.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Hosting.Abstractions.dll</PackagePath>
+      <Modified>2025-10-24T00:18:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.http\10.0.0\lib\net10.0\Microsoft.Extensions.Http.dll">
+      <PackagePath>Microsoft.Extensions.Http.dll</PackagePath>
+      <Modified>2025-10-24T00:21:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.localization\10.0.1\lib\net10.0\Microsoft.Extensions.Localization.dll">
+      <PackagePath>Microsoft.Extensions.Localization.dll</PackagePath>
+      <Modified>2025-11-19T16:22:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.localization.abstractions\10.0.1\lib\net10.0\Microsoft.Extensions.Localization.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Localization.Abstractions.dll</PackagePath>
+      <Modified>2025-11-19T16:21:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.logging\10.0.5\lib\net10.0\Microsoft.Extensions.Logging.dll">
+      <PackagePath>Microsoft.Extensions.Logging.dll</PackagePath>
+      <Modified>2026-03-03T19:21:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.logging.abstractions\10.0.5\lib\net10.0\Microsoft.Extensions.Logging.Abstractions.dll">
+      <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
+      <Modified>2026-03-03T19:19:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.logging.debug\10.0.5\lib\net10.0\Microsoft.Extensions.Logging.Debug.dll">
+      <PackagePath>Microsoft.Extensions.Logging.Debug.dll</PackagePath>
+      <Modified>2026-03-03T19:22:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.options\10.0.5\lib\net10.0\Microsoft.Extensions.Options.dll">
+      <PackagePath>Microsoft.Extensions.Options.dll</PackagePath>
+      <Modified>2026-03-03T19:20:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.options.configurationextensions\10.0.1\lib\net10.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll">
+      <PackagePath>Microsoft.Extensions.Options.ConfigurationExtensions.dll</PackagePath>
+      <Modified>2025-11-19T15:34:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.primitives\10.0.5\lib\net10.0\Microsoft.Extensions.Primitives.dll">
+      <PackagePath>Microsoft.Extensions.Primitives.dll</PackagePath>
+      <Modified>2026-03-03T19:15:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.validation\10.0.1\lib\net10.0\Microsoft.Extensions.Validation.dll">
+      <PackagePath>Microsoft.Extensions.Validation.dll</PackagePath>
+      <Modified>2025-11-19T16:20:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.graphics.win2d\1.3.2\lib\net6.0-windows10.0.19041.0\Microsoft.Graphics.Canvas.Interop.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
+      <Modified>2025-01-29T04:46:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identity.client\4.73.1\lib\net8.0\Microsoft.Identity.Client.dll">
+      <PackagePath>Microsoft.Identity.Client.dll</PackagePath>
+      <Modified>2025-06-25T18:28:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identity.client.extensions.msal\4.73.1\lib\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll">
+      <PackagePath>Microsoft.Identity.Client.Extensions.Msal.dll</PackagePath>
+      <Modified>2025-06-25T18:31:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identitymodel.abstractions\7.7.1\lib\net8.0\Microsoft.IdentityModel.Abstractions.dll">
+      <PackagePath>Microsoft.IdentityModel.Abstractions.dll</PackagePath>
+      <Modified>2024-07-19T23:29:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identitymodel.jsonwebtokens\7.7.1\lib\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll">
+      <PackagePath>Microsoft.IdentityModel.JsonWebTokens.dll</PackagePath>
+      <Modified>2024-07-19T23:29:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identitymodel.logging\7.7.1\lib\net8.0\Microsoft.IdentityModel.Logging.dll">
+      <PackagePath>Microsoft.IdentityModel.Logging.dll</PackagePath>
+      <Modified>2024-07-19T23:29:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identitymodel.protocols\7.7.1\lib\net8.0\Microsoft.IdentityModel.Protocols.dll">
+      <PackagePath>Microsoft.IdentityModel.Protocols.dll</PackagePath>
+      <Modified>2024-07-19T23:29:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identitymodel.protocols.openidconnect\7.7.1\lib\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <PackagePath>Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</PackagePath>
+      <Modified>2024-07-19T23:29:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.identitymodel.tokens\7.7.1\lib\net8.0\Microsoft.IdentityModel.Tokens.dll">
+      <PackagePath>Microsoft.IdentityModel.Tokens.dll</PackagePath>
+      <Modified>2024-07-19T23:29:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.io.recyclablememorystream\3.0.1\lib\net6.0\Microsoft.IO.RecyclableMemoryStream.dll">
+      <PackagePath>Microsoft.IO.RecyclableMemoryStream.dll</PackagePath>
+      <Modified>2024-06-11T20:23:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.jsinterop\10.0.1\lib\net10.0\Microsoft.JSInterop.dll">
+      <PackagePath>Microsoft.JSInterop.dll</PackagePath>
+      <Modified>2025-11-19T16:20:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Controls.dll">
+      <PackagePath>Microsoft.Maui.Controls.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.xaml\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Controls.Xaml.dll">
+      <PackagePath>Microsoft.Maui.Controls.Xaml.dll</PackagePath>
+      <Modified>2026-03-18T17:04:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.core\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.dll">
+      <PackagePath>Microsoft.Maui.dll</PackagePath>
+      <Modified>2026-03-18T17:03:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.essentials\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Essentials.dll">
+      <PackagePath>Microsoft.Maui.Essentials.dll</PackagePath>
+      <Modified>2026-03-18T17:02:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.graphics\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Graphics.dll">
+      <PackagePath>Microsoft.Maui.Graphics.dll</PackagePath>
+      <Modified>2026-03-18T17:02:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.graphics.win2d.winui.desktop\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll">
+      <PackagePath>Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.dll</PackagePath>
+      <Modified>2026-03-18T17:02:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.sqlserver.server\1.0.0\lib\netstandard2.0\Microsoft.SqlServer.Server.dll">
+      <PackagePath>Microsoft.SqlServer.Server.dll</PackagePath>
+      <Modified>2022-01-27T17:19:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ai\1.8.39\lib\net6.0-windows10.0.17763.0\Microsoft.Graphics.Imaging.Projection.dll">
+      <PackagePath>Microsoft.Graphics.Imaging.Projection.dll</PackagePath>
+      <Modified>2025-11-05T21:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ai\1.8.39\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.ContentSafety.Projection.dll">
+      <PackagePath>Microsoft.Windows.AI.ContentSafety.Projection.dll</PackagePath>
+      <Modified>2025-11-05T21:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ai\1.8.39\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Foundation.Projection.dll">
+      <PackagePath>Microsoft.Windows.AI.Foundation.Projection.dll</PackagePath>
+      <Modified>2025-11-05T21:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ai\1.8.39\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Imaging.Projection.dll">
+      <PackagePath>Microsoft.Windows.AI.Imaging.Projection.dll</PackagePath>
+      <Modified>2025-11-05T21:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ai\1.8.39\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Projection.dll">
+      <PackagePath>Microsoft.Windows.AI.Projection.dll</PackagePath>
+      <Modified>2025-11-05T21:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ai\1.8.39\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AI.Text.Projection.dll">
+      <PackagePath>Microsoft.Windows.AI.Text.Projection.dll</PackagePath>
+      <Modified>2025-11-05T21:10:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Security.Authentication.OAuth.Projection.dll">
+      <PackagePath>Microsoft.Security.Authentication.OAuth.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppLifecycle.Projection.dll">
+      <PackagePath>Microsoft.Windows.AppLifecycle.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppNotifications.Builder.Projection.dll">
+      <PackagePath>Microsoft.Windows.AppNotifications.Builder.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.AppNotifications.Projection.dll">
+      <PackagePath>Microsoft.Windows.AppNotifications.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.Background.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.Background.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.DynamicDependency.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.Resources.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.Resources.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:39:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.WindowsAppRuntime.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.BadgeNotifications.Projection.dll">
+      <PackagePath>Microsoft.Windows.BadgeNotifications.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Foundation.Projection.dll">
+      <PackagePath>Microsoft.Windows.Foundation.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Management.Deployment.Projection.dll">
+      <PackagePath>Microsoft.Windows.Management.Deployment.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Media.Capture.Projection.dll">
+      <PackagePath>Microsoft.Windows.Media.Capture.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.PushNotifications.Projection.dll">
+      <PackagePath>Microsoft.Windows.PushNotifications.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Security.AccessControl.Projection.dll">
+      <PackagePath>Microsoft.Windows.Security.AccessControl.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Storage.Pickers.Projection.dll">
+      <PackagePath>Microsoft.Windows.Storage.Pickers.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Storage.Projection.dll">
+      <PackagePath>Microsoft.Windows.Storage.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.System.Power.Projection.dll">
+      <PackagePath>Microsoft.Windows.System.Power.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.System.Projection.dll">
+      <PackagePath>Microsoft.Windows.System.Projection.dll</PackagePath>
+      <Modified>2025-11-04T20:38:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\lib\net6.0-windows10.0.17763.0\Microsoft.WindowsAppRuntime.Bootstrap.Net.dll">
+      <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.Net.dll</PackagePath>
+      <Modified>2025-11-04T20:39:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.interactiveexperiences\1.8.251104001\lib\net6.0-windows10.0.18362.0\Microsoft.InteractiveExperiences.Projection.dll">
+      <PackagePath>Microsoft.InteractiveExperiences.Projection.dll</PackagePath>
+      <Modified>2025-11-04T13:40:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ml\1.8.2109\lib\net8.0-windows10.0.17763.0\Microsoft.ML.OnnxRuntime.dll">
+      <PackagePath>Microsoft.ML.OnnxRuntime.dll</PackagePath>
+      <Modified>2025-11-05T00:33:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.ml\1.8.2109\lib\net8.0-windows10.0.17763.0\Microsoft.Windows.AI.MachineLearning.Projection.dll">
+      <PackagePath>Microsoft.Windows.AI.MachineLearning.Projection.dll</PackagePath>
+      <Modified>2025-11-05T00:33:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.widgets\1.8.250904007\lib\net6.0-windows10.0.17763.0\Microsoft.Windows.Widgets.Projection.dll">
+      <PackagePath>Microsoft.Windows.Widgets.Projection.dll</PackagePath>
+      <Modified>2025-09-05T02:13:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.winui\1.8.251105000\lib\net6.0-windows10.0.17763.0\Microsoft.WinUI.dll">
+      <PackagePath>Microsoft.WinUI.dll</PackagePath>
+      <Modified>2025-11-05T12:31:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mudblazor\9.1.0\lib\net10.0\MudBlazor.dll">
+      <PackagePath>MudBlazor.dll</PackagePath>
+      <Modified>2026-03-03T21:45:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.data\9.6.0\lib\net10.0\MySql.Data.dll">
+      <PackagePath>MySql.Data.dll</PackagePath>
+      <Modified>2026-01-07T11:27:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.entityframeworkcore\10.0.1\lib\net10.0\MySql.EntityFrameworkCore.dll">
+      <PackagePath>MySql.EntityFrameworkCore.dll</PackagePath>
+      <Modified>2026-01-07T11:23:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\lib\net10.0\QuestPDF.dll">
+      <PackagePath>QuestPDF.dll</PackagePath>
+      <Modified>2026-03-20T13:48:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\rbush.signed\4.0.0\lib\net8.0\RBush.dll">
+      <PackagePath>RBush.dll</PackagePath>
+      <Modified>2024-11-18T15:48:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\sixlabors.fonts\1.0.0\lib\netcoreapp3.1\SixLabors.Fonts.dll">
+      <PackagePath>SixLabors.Fonts.dll</PackagePath>
+      <Modified>2023-08-11T12:04:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.clientmodel\1.5.1\lib\net8.0\System.ClientModel.dll">
+      <PackagePath>System.ClientModel.dll</PackagePath>
+      <Modified>2025-07-15T00:09:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.configuration.configurationmanager\9.0.4\lib\net9.0\System.Configuration.ConfigurationManager.dll">
+      <PackagePath>System.Configuration.ConfigurationManager.dll</PackagePath>
+      <Modified>2025-03-13T22:06:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.diagnostics.eventlog\9.0.4\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.Messages.dll">
+      <PackagePath>System.Diagnostics.EventLog.Messages.dll</PackagePath>
+      <Modified>2025-03-13T22:06:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.diagnostics.eventlog\9.0.4\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll">
+      <PackagePath>System.Diagnostics.EventLog.dll</PackagePath>
+      <Modified>2025-03-13T22:07:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.identitymodel.tokens.jwt\7.7.1\lib\net8.0\System.IdentityModel.Tokens.Jwt.dll">
+      <PackagePath>System.IdentityModel.Tokens.Jwt.dll</PackagePath>
+      <Modified>2024-07-19T23:28:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.io.packaging\8.0.1\lib\net8.0\System.IO.Packaging.dll">
+      <PackagePath>System.IO.Packaging.dll</PackagePath>
+      <Modified>2024-09-16T23:09:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.memory.data\8.0.1\lib\net8.0\System.Memory.Data.dll">
+      <PackagePath>System.Memory.Data.dll</PackagePath>
+      <Modified>2024-09-16T23:10:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.numerics.tensors\9.0.0\lib\net9.0\System.Numerics.Tensors.dll">
+      <PackagePath>System.Numerics.Tensors.dll</PackagePath>
+      <Modified>2024-10-29T02:38:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.security.cryptography.pkcs\9.0.4\runtimes\win\lib\net9.0\System.Security.Cryptography.Pkcs.dll">
+      <PackagePath>System.Security.Cryptography.Pkcs.dll</PackagePath>
+      <Modified>2025-03-13T22:07:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.security.cryptography.protecteddata\9.0.4\lib\net9.0\System.Security.Cryptography.ProtectedData.dll">
+      <PackagePath>System.Security.Cryptography.ProtectedData.dll</PackagePath>
+      <Modified>2025-03-13T22:06:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.security.permissions\8.0.0\lib\net8.0\System.Security.Permissions.dll">
+      <PackagePath>System.Security.Permissions.dll</PackagePath>
+      <Modified>2023-10-31T14:59:40.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.windows.extensions\8.0.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll">
+      <PackagePath>System.Windows.Extensions.dll</PackagePath>
+      <Modified>2023-10-31T14:59:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\zstdsharp.port\0.8.6\lib\net9.0\ZstdSharp.dll">
+      <PackagePath>ZstdSharp.dll</PackagePath>
+      <Modified>2025-07-17T17:14:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\cs\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>cs\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.687</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\de\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>de\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.690</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\es\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>es\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.692</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\fr\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>fr\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.694</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\it\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>it\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.696</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\ja\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>ja\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.698</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\ko\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>ko\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.699</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\pl\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>pl\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.701</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\pt-BR\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>pt-BR\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.703</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\ru\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>ru\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.704</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\tr\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>tr\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.708</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.709</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient\6.1.1\lib\net9.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.Data.SqlClient.resources.dll</PackagePath>
+      <Modified>2026-03-12T17:51:42.710</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ar\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ar\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ca\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ca\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\cs\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>cs\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\da\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>da\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\de\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>de\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\el\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>el\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\es\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>es\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\fi\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>fi\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\fr\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>fr\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\he\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>he\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\hi\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>hi\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\hr\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>hr\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\hu\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>hu\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\id\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>id\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\it\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>it\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ja\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ja\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ko\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ko\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ms\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ms\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\nb\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>nb\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\nl\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>nl\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\pl\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>pl\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\pt-BR\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>pt-BR\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\pt\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>pt\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ro\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ro\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\ru\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>ru\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\sk\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>sk\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\sv\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>sv\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\th\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>th\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\tr\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>tr\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\uk\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>uk\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\vi\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>vi\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\zh-HK\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>zh-HK\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\zh-Hans\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\zh-Hant\Microsoft.Maui.Controls.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.Maui.Controls.resources.dll</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.data.sqlclient.sni.runtime\6.0.2\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll">
+      <PackagePath>Microsoft.Data.SqlClient.SNI.dll</PackagePath>
+      <Modified>2025-01-16T00:23:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.graphics.win2d\1.3.2\runtimes\win-x64\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+      <Modified>2025-01-29T04:46:06.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.web.webview2\1.0.3179.45\runtimes\win-x64\native\WebView2Loader.dll">
+      <PackagePath>WebView2Loader.dll</PackagePath>
+      <Modified>2025-03-30T09:04:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\runtimes\win-x64\native\Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll">
+      <PackagePath>Microsoft.Windows.ApplicationModel.Background.UniversalBGTask.dll</PackagePath>
+      <Modified>2025-11-04T20:37:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.foundation\1.8.251104000\runtimes\win-x64\native\Microsoft.WindowsAppRuntime.Bootstrap.dll">
+      <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
+      <Modified>2025-11-04T20:37:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.data\9.6.0\runtimes\win-x64\native\comerr64.dll">
+      <PackagePath>comerr64.dll</PackagePath>
+      <Modified>2026-01-07T11:22:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.data\9.6.0\runtimes\win-x64\native\gssapi64.dll">
+      <PackagePath>gssapi64.dll</PackagePath>
+      <Modified>2026-01-07T11:22:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.data\9.6.0\runtimes\win-x64\native\k5sprt64.dll">
+      <PackagePath>k5sprt64.dll</PackagePath>
+      <Modified>2026-01-07T11:22:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.data\9.6.0\runtimes\win-x64\native\krb5_64.dll">
+      <PackagePath>krb5_64.dll</PackagePath>
+      <Modified>2026-01-07T11:22:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mysql.data\9.6.0\runtimes\win-x64\native\krbcc64.dll">
+      <PackagePath>krbcc64.dll</PackagePath>
+      <Modified>2026-01-07T11:22:44.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\runtimes\win-x64\native\QuestPdfSkia.dll">
+      <PackagePath>QuestPdfSkia.dll</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\runtimes\win-x64\native\libgcc_s_seh-1.dll">
+      <PackagePath>libgcc_s_seh-1.dll</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\runtimes\win-x64\native\libstdc++-6.dll">
+      <PackagePath>libstdc++-6.dll</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\runtimes\win-x64\native\libwinpthread-1.dll">
+      <PackagePath>libwinpthread-1.dll</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\runtimes\win-x64\native\qpdf.dll">
+      <PackagePath>qpdf.dll</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\questpdf\2026.2.4\runtimes\win-x64\native\zlib1.dll">
+      <PackagePath>zlib1.dll</PackagePath>
+      <Modified>2026-03-20T13:44:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.web.webview2\1.0.3179.45\runtimes\win-x64\native_uap\Microsoft.Web.WebView2.Core.dll">
+      <PackagePath>Microsoft.Web.WebView2.Core.dll</PackagePath>
+      <Modified>2025-03-30T09:04:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.web.webview2\1.0.3179.45\lib_manual\net8.0-windows10.0.17763.0\Microsoft.Web.WebView2.Core.Projection.dll">
+      <PackagePath>Microsoft.Web.WebView2.Core.Projection.dll</PackagePath>
+      <Modified>2025-03-30T09:04:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Marinela.deps.json">
+      <PackagePath>Marinela.deps.json</PackagePath>
+      <Modified>2026-04-13T17:39:36.618</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\staticwebassets.build.endpoints.json">
+      <PackagePath>Marinela.staticwebassets.endpoints.json</PackagePath>
+      <Modified>2026-03-17T17:25:38.954</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\Images\Osito_Bimbo-dialogo.png">
+      <PackagePath>Images\Osito_Bimbo-dialogo.png</PackagePath>
+      <Modified>2026-03-02T17:44:02.189</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\Images\osito_bimbo.png">
+      <PackagePath>Images\osito_bimbo.png</PackagePath>
+      <Modified>2026-02-25T19:05:35.073</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\app.css">
+      <PackagePath>app.css</PackagePath>
+      <Modified>2026-03-03T15:33:01.594</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\audio\-Error-.mp3">
+      <PackagePath>audio\-Error-.mp3</PackagePath>
+      <Modified>2026-03-17T17:25:00.746</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\audio\alert.mp3">
+      <PackagePath>audio\alert.mp3</PackagePath>
+      <Modified>2026-03-17T16:26:53.203</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2026-03-17T16:31:12.061</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\js\alarma.js">
+      <PackagePath>js\alarma.js</PackagePath>
+      <Modified>2026-03-17T16:31:15.601</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css">
+      <PackagePath>lib\bootstrap\dist\css\bootstrap.min.css</PackagePath>
+      <Modified>2026-03-03T15:33:01.611</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map">
+      <PackagePath>lib\bootstrap\dist\css\bootstrap.min.css.map</PackagePath>
+      <Modified>2026-03-03T15:33:01.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\css\apexcharts.css">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\css\apexcharts.css</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\js\apexcharts.esm.js">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\js\apexcharts.esm.js</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\js\blazor-apexcharts.js">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\js\blazor-apexcharts.js</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ar.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ar.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\be-cyrl.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\be-cyrl.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\be-latn.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\be-latn.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ca.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ca.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\cs.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\cs.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\da.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\da.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\de.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\de.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\el.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\el.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\en.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\en.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\es.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\es.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\et.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\et.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\fa.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\fa.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\fi.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\fi.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\fr.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\fr.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\he.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\he.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\hi.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\hi.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\hr.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\hr.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\hu.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\hu.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\hy.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\hy.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\id.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\id.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\it.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\it.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ja.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ja.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ka.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ka.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ko.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ko.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\lt.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\lt.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\lv.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\lv.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ms.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ms.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\nb.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\nb.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\nl.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\nl.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\pl.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\pl.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\pt-br.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\pt-br.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\pt.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\pt.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\ru.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\ru.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\sk.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\sk.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\sl.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\sl.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\sq.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\sq.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\sr.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\sr.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\sv.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\sv.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\th.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\th.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\tr.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\tr.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\uk.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\uk.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\vi.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\vi.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\zh-cn.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\zh-cn.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\blazor-apexcharts\6.1.0\staticwebassets\locales\zh-tw.json">
+      <PackagePath>wwwroot\_content\Blazor-ApexCharts\locales\zh-tw.json</PackagePath>
+      <Modified>2026-01-17T17:07:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mudblazor\9.1.0\staticwebassets\MudBlazor.min.css">
+      <PackagePath>wwwroot\_content\MudBlazor\MudBlazor.min.css</PackagePath>
+      <Modified>2026-03-03T21:44:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mudblazor\9.1.0\staticwebassets\MudBlazor.min.js">
+      <PackagePath>wwwroot\_content\MudBlazor\MudBlazor.min.js</PackagePath>
+      <Modified>2026-03-03T21:44:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mudblazor\9.1.0\staticwebassets\MudBlazor.min.js.map">
+      <PackagePath>wwwroot\_content\MudBlazor\MudBlazor.min.js.map</PackagePath>
+      <Modified>2026-03-03T21:44:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\scopedcss\bundle\Marinela.styles.css">
+      <PackagePath>wwwroot\Marinela.styles.css</PackagePath>
+      <Modified>2026-03-12T18:41:59.451</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\obj\Debug\net10.0-windows10.0.19041.0\win-x64\scopedcss\projectbundle\Marinela.bundle.scp.css">
+      <PackagePath>wwwroot\Marinela.p0sgtwflsr.bundle.scp.css</PackagePath>
+      <Modified>2026-03-12T18:41:59.454</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\Components\Layout\MainLayout.razor.css">
+      <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>
+      <Modified>2026-02-27T17:17:52.805</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\Components\Layout\NavMenu.razor.css">
+      <PackagePath>Components\Layout\NavMenu.razor.css</PackagePath>
+      <Modified>2026-02-27T17:14:36.622</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\humanizer.core\2.14.1\lib\net6.0\Humanizer.dll">
+      <PackagePath>Humanizer.dll</PackagePath>
+      <Modified>2022-01-29T15:04:04.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.build.framework\18.0.2\lib\net10.0\Microsoft.Build.Framework.dll">
+      <PackagePath>Microsoft.Build.Framework.dll</PackagePath>
+      <Modified>2025-10-21T10:15:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\Microsoft.CodeAnalysis.dll">
+      <PackagePath>Microsoft.CodeAnalysis.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\Microsoft.CodeAnalysis.CSharp.dll">
+      <PackagePath>Microsoft.CodeAnalysis.CSharp.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <PackagePath>Microsoft.CodeAnalysis.CSharp.Workspaces.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\Microsoft.CodeAnalysis.Workspaces.dll">
+      <PackagePath>Microsoft.CodeAnalysis.Workspaces.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll">
+      <PackagePath>Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll</PackagePath>
+      <Modified>2025-11-17T23:23:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll">
+      <PackagePath>Microsoft.CodeAnalysis.Workspaces.MSBuild.dll</PackagePath>
+      <Modified>2025-11-17T23:25:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.entityframeworkcore.design\10.0.5\lib\net10.0\Microsoft.EntityFrameworkCore.Design.dll">
+      <PackagePath>Microsoft.EntityFrameworkCore.Design.dll</PackagePath>
+      <Modified>2026-03-03T19:55:02.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.extensions.dependencymodel\10.0.5\lib\net10.0\Microsoft.Extensions.DependencyModel.dll">
+      <PackagePath>Microsoft.Extensions.DependencyModel.dll</PackagePath>
+      <Modified>2026-03-03T19:16:14.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.visualstudio.solutionpersistence\1.0.52\lib\net8.0\Microsoft.VisualStudio.SolutionPersistence.dll">
+      <PackagePath>Microsoft.VisualStudio.SolutionPersistence.dll</PackagePath>
+      <Modified>2025-03-04T19:02:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\mono.texttemplating\3.0.0\lib\net6.0\Mono.TextTemplating.dll">
+      <PackagePath>Mono.TextTemplating.dll</PackagePath>
+      <Modified>2024-09-03T21:57:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\newtonsoft.json\13.0.3\lib\net6.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2023-03-08T07:09:54.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.codedom\6.0.0\lib\net6.0\System.CodeDom.dll">
+      <PackagePath>System.CodeDom.dll</PackagePath>
+      <Modified>2021-10-22T23:47:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.composition.attributedmodel\9.0.0\lib\net9.0\System.Composition.AttributedModel.dll">
+      <PackagePath>System.Composition.AttributedModel.dll</PackagePath>
+      <Modified>2024-10-29T02:38:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.composition.convention\9.0.0\lib\net9.0\System.Composition.Convention.dll">
+      <PackagePath>System.Composition.Convention.dll</PackagePath>
+      <Modified>2024-10-29T02:38:24.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.composition.hosting\9.0.0\lib\net9.0\System.Composition.Hosting.dll">
+      <PackagePath>System.Composition.Hosting.dll</PackagePath>
+      <Modified>2024-10-29T02:38:28.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.composition.runtime\9.0.0\lib\net9.0\System.Composition.Runtime.dll">
+      <PackagePath>System.Composition.Runtime.dll</PackagePath>
+      <Modified>2024-10-29T02:38:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\system.composition.typedparts\9.0.0\lib\net9.0\System.Composition.TypedParts.dll">
+      <PackagePath>System.Composition.TypedParts.dll</PackagePath>
+      <Modified>2024-10-29T02:38:36.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\cs\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>cs\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\de\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>de\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\es\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>es\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\fr\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>fr\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\it\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>it\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\ja\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>ja\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\ko\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>ko\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\pl\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>pl\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>pt-BR\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\ru\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>ru\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\tr\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>tr\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.common\5.0.0\lib\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.CodeAnalysis.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:14:18.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>cs\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>de\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>es\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>fr\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>it\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>ja\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>ko\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>pl\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>ru\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>tr\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp\5.0.0\lib\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.csharp.workspaces\5.0.0\lib\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:20:16.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>cs\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>de\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>es\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>fr\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>it\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>ja\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>ko\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>pl\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>ru\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>tr\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.common\5.0.0\lib\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:18:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\5.0.0\lib\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll">
+      <PackagePath>zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll</PackagePath>
+      <Modified>2025-11-17T23:25:30.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview.maui\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.AspNetCore.Components.WebView.Maui.pri">
+      <PackagePath>Microsoft.AspNetCore.Components.WebView.Maui.pri</PackagePath>
+      <Modified>2026-03-18T17:06:12.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.core\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Controls.pri">
+      <PackagePath>Microsoft.Maui.Controls.pri</PackagePath>
+      <Modified>2026-03-18T17:04:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.controls.xaml\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Controls.Xaml.pri">
+      <PackagePath>Microsoft.Maui.Controls.Xaml.pri</PackagePath>
+      <Modified>2026-03-18T17:04:38.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.core\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.pri">
+      <PackagePath>Microsoft.Maui.pri</PackagePath>
+      <Modified>2026-03-18T17:03:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.essentials\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Essentials.pri">
+      <PackagePath>Microsoft.Maui.Essentials.pri</PackagePath>
+      <Modified>2026-03-18T17:02:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.graphics\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Graphics.pri">
+      <PackagePath>Microsoft.Maui.Graphics.pri</PackagePath>
+      <Modified>2026-03-18T17:02:26.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.maui.graphics.win2d.winui.desktop\10.0.51\lib\net10.0-windows10.0.19041\Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.pri">
+      <PackagePath>Microsoft.Maui.Graphics.Win2D.WinUI.Desktop.pri</PackagePath>
+      <Modified>2026-03-18T17:02:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.web.webview2\1.0.3179.45\build\..\lib\Microsoft.Web.WebView2.Core.winmd">
+      <PackagePath>Microsoft.Web.WebView2.Core.winmd</PackagePath>
+      <Modified>2025-03-30T09:03:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\.nuget\packages\microsoft.graphics.win2d\1.3.2\buildTransitive\net6.0-windows10.0.19041.0\..\..\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+      <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
+      <Modified>2025-01-29T04:46:08.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Asus\Documents\Visual Studio 2017\Marinela\bin\Debug\net10.0-windows10.0.19041.0\win-x64\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2026-04-13T17:39:36.313</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.8.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.8</Name>
+      <Version>8000.675.1142.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.8, MinVersion = 8000.675.1142.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.8.msix</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.8.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.8</Name>
+      <Version>8000.675.1142.0</Version>
+      <Architecture>win32</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.8, MinVersion = 8000.675.1142.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-x86\Microsoft.WindowsAppRuntime.1.8.msix</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.1.8.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.8</Name>
+      <Version>8000.675.1142.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.8, MinVersion = 8000.675.1142.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-x64\Microsoft.WindowsAppRuntime.1.8.msix</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.1.8.msix">
+      <Name>Microsoft.WindowsAppRuntime.1.8</Name>
+      <Version>8000.675.1142.0</Version>
+      <Architecture>arm64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsAppRuntime.1.8, MinVersion = 8000.675.1142.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\Asus\.nuget\packages\microsoft.windowsappsdk.runtime\1.8.251106002\buildTransitive\..\tools\MSIX\win10-arm64\Microsoft.WindowsAppRuntime.1.8.msix</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

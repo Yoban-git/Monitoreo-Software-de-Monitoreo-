@@ -1,0 +1,430 @@
+@page "/login"
+@using System.ComponentModel.DataAnnotations
+@using Marinela.ViewModels.Login
+
+@inject AuthService _AuthService
+@inject NavigationManager navManager
+
+<div class="login-wrapper">
+    <!-- Panel izquierdo ilustrado -->
+    <div class="left-panel">
+        <div class="brand">
+            <div class="brand-icon">
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <rect x="0" y="0" width="16" height="16" rx="3" fill="white"/>
+                    <rect x="20" y="0" width="16" height="16" rx="3" fill="white" opacity="0.6"/>
+                    <rect x="0" y="20" width="16" height="16" rx="3" fill="white" opacity="0.6"/>
+                    <rect x="20" y="20" width="16" height="16" rx="3" fill="white"/>
+                </svg>
+            </div>
+            <span class="brand-name">Software<br/><strong>Marinela Norte 2</strong></span>
+        </div>
+
+        <div class="illustration">
+            <img src="Images/osito_bimbo.png" alt="Osito Bimbo" />
+        </div>
+
+        <div class="left-footer">
+            <p>Tu aplicacion de monitoreo</p>
+        </div>
+    </div>
+
+    <!-- Panel derecho con formulario -->
+    <div class="right-panel">
+        <div class="form-container">
+            <h1 class="welcome-title">¡Bienvenido de nuevo!</h1>
+            <p class="welcome-sub">Ingresa tus credenciales para continuar</p>
+
+            <EditForm Model="loginModel" OnValidSubmit="Acceder">
+                <DataAnnotationsValidator />
+
+                @if (!string.IsNullOrEmpty(errorMessage))
+                {
+                    <div class="alert-box alert-error">
+                        <svg viewBox="0 0 16 16" fill="none">
+                            <circle cx="8" cy="8" r="7" stroke="#EF4444" stroke-width="1.5"/>
+                            <path d="M8 5v3M8 10.5v.5" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <span>@errorMessage</span>
+                        <button class="alert-close" type="button" @onclick="() => errorMessage = string.Empty">✕</button>
+                    </div>
+                }
+
+                @if (!string.IsNullOrEmpty(mensajeExito))
+                {
+                    <div class="alert-box alert-success">
+                        <svg viewBox="0 0 16 16" fill="none">
+                            <circle cx="8" cy="8" r="7" stroke="#22C55E" stroke-width="1.5"/>
+                            <path d="M5 8l2 2 4-4" stroke="#22C55E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>@mensajeExito</span>
+                        <button class="alert-close" type="button" @onclick="() => mensajeExito = string.Empty">✕</button>
+                    </div>
+                }
+
+                <div class="form-group">
+                    <label class="input-label">Usuario o Email</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 20 20" fill="none">
+                            <path d="M2.5 6.5L10 11.5L17.5 6.5M3 5h14a1 1 0 011 1v8a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <InputText id="userName"
+                                   class="form-input"
+                                   @bind-Value="loginModel.UserName"
+                                   placeholder="nombre@empresa.com"
+                                   disabled="@cargando" />
+                    </div>
+                    <ValidationMessage For="@(() => loginModel.UserName)" class="validation-msg" />
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">Contraseña</label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 20 20" fill="none">
+                            <rect x="4" y="9" width="12" height="9" rx="1.5" stroke="#94A3B8" stroke-width="1.5"/>
+                            <path d="M7 9V6.5a3 3 0 016 0V9" stroke="#94A3B8" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                        <InputText id="password"
+                                   type="@(showPassword ? "text" : "password")"
+                                   class="form-input"
+                                   @bind-Value="loginModel.Password"
+                                   placeholder="••••••••"
+                                   disabled="@cargando" />
+                        <button class="eye-btn" @onclick="TogglePassword" type="button">
+                            @if (showPassword)
+                            {
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 10s3-5 7-5 7 5 7 5-3 5-7 5-7-5-7-5z" stroke="#64748B" stroke-width="1.5"/>
+                                    <circle cx="10" cy="10" r="2" stroke="#64748B" stroke-width="1.5"/>
+                                    <line x1="3" y1="3" x2="17" y2="17" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            }
+                            else
+                            {
+                                <svg viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 10s3-5 7-5 7 5 7 5-3 5-7 5-7-5-7-5z" stroke="#64748B" stroke-width="1.5"/>
+                                    <circle cx="10" cy="10" r="2" stroke="#64748B" stroke-width="1.5"/>
+                                </svg>
+                            }
+                        </button>
+                    </div>
+                    <ValidationMessage For="@(() => loginModel.Password)" class="validation-msg" />
+                </div>
+
+                <button type="submit" class="login-btn" disabled="@cargando">
+                    @if (cargando)
+                    {
+                        <span class="spinner"></span>
+                        <span>Iniciando sesión...</span>
+                    }
+                    else
+                    {
+                        <span>Iniciar sesión</span>
+                        <svg viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12M11 5l5 5-5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    }
+                </button>
+            </EditForm>
+        </div>
+    </div>
+</div>
+
+@code {
+    private LoginModel loginModel = new();
+    private string errorMessage = string.Empty;
+    private string mensajeExito = string.Empty;
+    private bool showPassword = false;
+    private bool cargando = false;
+
+    private void TogglePassword() => showPassword = !showPassword;
+
+    private async Task Acceder()
+    {
+        cargando = true;
+        errorMessage = string.Empty;
+        mensajeExito = string.Empty;
+        StateHasChanged();
+
+        try
+        {
+            var resultado = await _AuthService.Login(loginModel.UserName, loginModel.Password);
+            if (resultado.Exito)
+            {
+                mensajeExito = resultado.Mensaje;
+                StateHasChanged();
+
+                await Task.Delay(500);
+                navManager.NavigateTo("/", true);
+            }
+            else
+            {
+                errorMessage = resultado.Mensaje;
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = "Error al iniciar sesión. Intenta nuevamente.";
+            Console.WriteLine($"Error en login: {ex.Message}");
+        }
+        finally
+        {
+            cargando = false;
+            StateHasChanged();
+        }
+    }
+
+    public class LoginModel
+    {
+        [Required(ErrorMessage = "El usuario o email es requerido")]
+        public string UserName { get; set; } = string.Empty;
+
+        [Required(ErrorMessage = "La contraseña es requerida")]
+        public string Password { get; set; } = string.Empty;
+    }
+}
+
+<style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    .login-wrapper {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        min-height: 600px;
+        font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    }
+
+    /* ── Panel izquierdo ── */
+    .left-panel {
+        width: 44%;
+        min-width: 260px;
+        background: linear-gradient(145deg, #5B8DEF 0%, #3B6FD4 45%, #2952B0 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 32px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .left-panel::before {
+        content: '';
+        position: absolute;
+        top: -80px; right: -80px;
+        width: 300px; height: 300px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.07);
+    }
+    .left-panel::after {
+        content: '';
+        position: absolute;
+        bottom: -60px; left: -60px;
+        width: 220px; height: 220px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.05);
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        align-self: flex-start;
+        color: white;
+        z-index: 1;
+    }
+    .brand-icon {
+        background: rgba(255,255,255,0.15);
+        border-radius: 10px;
+        padding: 8px;
+    }
+    .brand-name { font-size: 15px; line-height: 1.3; }
+    .brand-name strong { font-weight: 700; }
+
+    .illustration {
+        width: 100%;
+        max-width: 340px;
+        z-index: 1;
+        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+    }
+
+    .illustration img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    .left-footer {
+        color: rgba(255,255,255,0.6);
+        font-size: 13px;
+        text-align: center;
+        z-index: 1;
+    }
+
+    /* ── Panel derecho ── */
+    .right-panel {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FFFFFF;
+        padding: 40px 32px;
+    }
+
+    .form-container { width: 100%; max-width: 380px; }
+
+    .welcome-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1E293B;
+        letter-spacing: -0.5px;
+        margin-bottom: 6px;
+    }
+    .welcome-sub {
+        font-size: 14px;
+        color: #64748B;
+        margin-bottom: 36px;
+    }
+
+    /* ── Inputs ── */
+    .form-group { margin-bottom: 20px; }
+
+    .input-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 8px;
+    }
+
+    .input-wrapper { position: relative; display: flex; align-items: center; }
+
+    .input-icon {
+        position: absolute;
+        left: 14px;
+        width: 18px; height: 18px;
+        pointer-events: none;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 13px 44px;
+        border: 1.5px solid #E2E8F0;
+        border-radius: 10px;
+        font-size: 14px;
+        color: #1E293B;
+        background: #F8FAFC;
+        transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+        outline: none;
+        font-family: inherit;
+    }
+    .form-input::placeholder { color: #94A3B8; }
+    .form-input:focus {
+        border-color: #5B8DEF;
+        background: #FFFFFF;
+        box-shadow: 0 0 0 3px rgba(91,141,239,0.12);
+    }
+
+    .eye-btn {
+        position: absolute;
+        right: 14px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+    .eye-btn svg { width: 18px; height: 18px; }
+    .eye-btn:hover { opacity: 1; }
+
+    /* ── Botón ── */
+    .login-btn {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #5B8DEF 0%, #3B6FD4 100%);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 8px;
+        margin-bottom: 24px;
+        transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
+        box-shadow: 0 4px 20px rgba(59,111,212,0.35);
+        font-family: inherit;
+    }
+    .login-btn svg { width: 18px; height: 18px; }
+    .login-btn:hover:not(:disabled) {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 24px rgba(59,111,212,0.45);
+    }
+    .login-btn:active:not(:disabled) { transform: translateY(0); }
+    .login-btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    .spinner {
+        width: 18px; height: 18px;
+        border: 2px solid rgba(255,255,255,0.4);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+    }
+    @@keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Alertas ── */
+    .alert-box {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        margin-bottom: 16px;
+    }
+    .alert-box svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .alert-box span { flex: 1; }
+    .alert-error { background: #FEF2F2; border: 1px solid #FECACA; color: #DC2626; }
+    .alert-success { background: #F0FDF4; border: 1px solid #BBF7D0; color: #16A34A; }
+    .alert-close {
+        background: none; border: none; cursor: pointer;
+        font-size: 12px; color: inherit; opacity: 0.6;
+        padding: 0 2px; line-height: 1;
+        transition: opacity 0.2s;
+    }
+    .alert-close:hover { opacity: 1; }
+
+    /* ── Validación ── */
+    .validation-msg { font-size: 12px; color: #EF4444; margin-top: 4px; display: block; }
+
+    /* ── Links ── */
+    .form-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .link { font-size: 13px; color: #64748B; text-decoration: none; transition: color 0.2s; }
+    .link:hover { color: #3B6FD4; }
+    .link strong { color: #3B6FD4; font-weight: 600; }
+    .divider { color: #CBD5E1; font-size: 12px; }
+
+    /* ── Responsive ── */
+    @@media (max-width: 640px) {
+        .login-wrapper { flex-direction: column; height: auto; min-height: 100vh; }
+        .left-panel { width: 100%; min-height: 200px; padding: 28px 24px; }
+        .illustration { max-width: 200px; }
+        .left-footer { display: none; }
+        .right-panel { padding: 28px 24px; }
+        .welcome-title { font-size: 22px; }
+    }
+</style>

@@ -1,0 +1,412 @@
+@page "/grafica-sensor/{IdSensor:int}"
+@using ApexCharts
+@using Marinela.Models.DatosSensores
+@using Marinela.Models.Sensores
+@using Marinela.ViewModels.DatoSensorController
+@using Marinela.ViewModels.SensorController
+@using MudBlazor
+@using Microsoft.JSInterop
+@implements IAsyncDisposable
+
+@inject DatoSensorService SensorDataService
+@inject SensorService SensorService
+@inject NavigationManager NavManager
+@inject IJSRuntime JS
+
+<div class="d-flex align-items-center mb-3">
+    <button class="btn btn-outline-secondary me-3" @onclick="Regresar">
+        <i class="bi bi-arrow-left"></i> Regresar
+    </button>
+    <h3 class="mb-0">@tituloGrafica
+    </h3>
+    <button class="btn btn-outline-primary ms-auto" @onclick="IrADatos">
+        <i class="bi bi-table"></i> Ver Datos
+    </button>
+</div>
+
+<div class="row mb-4 align-items-end">
+    <div class="col-md-8">
+        <MudDateRangePicker Label="Rango de fechas"
+                            @bind-DateRange="rangoFechas"
+                            Variant="Variant.Outlined"
+                            DateFormat="dd/MM/yyyy"
+                            Clearable="true" />
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary w-100" @onclick="CargarDatos">
+            <i class="bi bi-search"></i> Buscar
+        </button>
+    </div>
+</div>
+
+<div class="row mb-4 align-items-end">
+    <div class="col-md-4">
+        <MudNumericField @bind-Value="valorMinimo"
+                         Label="Lectura mínima"
+                         Variant="Variant.Outlined"
+                         Format="F2" />
+    </div>
+    <div class="col-md-4">
+        <MudNumericField @bind-Value="valorMaximo"
+                         Label="Lectura máxima"
+                         Variant="Variant.Outlined"
+                         Format="F2" />
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-success w-100" @onclick="GuardarRango">
+            <i class="bi bi-floppy-fill"></i> Guardar rango
+        </button>
+    </div>
+</div>
+
+@if (cargando)
+{
+    <div class="text-center my-4">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2">Cargando datos...</p>
+    </div>
+}
+else if (!datos.Any() && !datosDB.Any())
+{
+    <div class="alert alert-warning">
+        No se encontraron datos en el rango de fechas seleccionado.
+    </div>
+}
+else
+{
+    <ApexChart TItem="DatoSensor"
+               Title="@tituloGrafica"
+               Options="opciones"
+               Height="300"
+               @ref="grafica">
+
+        <ApexPointSeries TItem="DatoSensor"
+                         Name="Lectura Excel"
+                         Items="datos"
+                         XValue="@(d => (d.Creado_En.ToUniversalTime() - DateTime.UnixEpoch).TotalMilliseconds)"
+                         YValue="@(d => (decimal)d.Dato)"
+                         SeriesType="SeriesType.Line"
+                         Color="#6366f1" />
+
+        <ApexPointSeries TItem="DatoSensor"
+                         Name="Lectura BD"
+                         Items="datosDB"
+                         XValue="@(d => (d.Creado_En.ToUniversalTime() - DateTime.UnixEpoch).TotalMilliseconds)"
+                         YValue="@(d => (decimal)d.Dato)"
+                         SeriesType="SeriesType.Line"
+                         Color="#f59e0b" />
+    </ApexChart>
+        @*nueva alerta*@
+    @if (alertas.Any())
+    {
+            @if (_alarmaActiva)
+            {
+                <button class="btn btn-sm btn-outline-danger ms-3" @onclick="SilenciarAlarma">
+                    <span class="bi bi-volume-mute-fill"> Silenciar</span>
+                </button>
+            }
+    }
+    @*fin alerta*@
+        @* Alerta ADVERTENCIA: en el límite exacto *@
+    @if (alertasLimites.Any())
+    {
+        <div class="alert alert-warning mt-2">
+            <strong><i class="bi bi-exclamation-circle-fill"></i> Lecturas en el límite:</strong>
+            <ul class="mb-0 mt-1">
+                @foreach (var alerta in alertasLimites)
+                {
+                    <li>@alerta</li>
+                }
+            </ul>
+        </div>
+    }
+    @* Fin alerta en texto *@
+    @* Alerta en texto *@
+    @if (alertas.Any())
+    {
+        <div class="alert alert-danger mt-2">
+            <strong><i class="bi bi-exclamation-triangle-fill"></i> Lecturas fuera de rango:</strong>
+            <ul class="mb-0 mt-1">
+                @foreach (var alerta in alertas)
+                {
+                    <li>@alerta</li>
+                }
+            </ul>
+        </div>
+    }
+}
+
+@code {
+    [Parameter] public int IdSensor { get; set; }
+    private List<string> alertas = new();
+    private List<string> alertasLimites = new();
+    private bool _alarmaActiva = false;
+    private List<DatoSensor> datos = new();
+    private List<DatoSensor> datosDB = new();
+    private bool cargando = false;
+    private string tituloGrafica = "Gráfica del sensor";
+    private MudBlazor.DateRange rangoFechas = new();
+    private ApexChart<DatoSensor>? grafica;
+
+    private double valorMinimo;
+    private double valorMaximo;
+
+    private PeriodicTimer? _timer;
+    private int _ultimoConteoExcel = 0;
+    private int _ultimoConteoDB = 0;
+
+    // Las opciones se construyen una sola vez y se actualizan via UpdateOptionsAsync
+    private ApexChartOptions<DatoSensor> opciones = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarLimitesAsync();
+        IniciarAutoRefresh();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            // Inicializa el audio con la ruta de tu archivo de alarma
+            await JS.InvokeVoidAsync("alarmaAudio.inicializar", "audio/alert.mp3");
+        }
+    }
+
+    // ─── Anotaciones: solo actualiza opciones, NO recrea el componente ──────────
+
+    private Annotations BuildAnnotations() => new Annotations
+    {
+        Yaxis = new List<AnnotationsYAxis>
+        {
+            new AnnotationsYAxis
+            {
+                Y = (decimal)valorMinimo,
+                BorderColor = "#ef4444",
+                BorderWidth = 2,
+                StrokeDashArray = 4,
+                Label = new Label
+                {
+                    Text = $"Mín: {valorMinimo:F2}",
+                    Style = new Style { Color = "#fff", Background = "#ef4444" }
+                }
+            },
+            new AnnotationsYAxis
+            {
+                Y = (decimal)valorMaximo,
+                BorderColor = "#f59e0b",
+                BorderWidth = 2,
+                StrokeDashArray = 4,
+                Label = new Label
+                {
+                    Text = $"Máx: {valorMaximo:F2}",
+                    Style = new Style { Color = "#fff", Background = "#f59e0b" }
+                }
+            }
+        }
+    };
+
+    private void BuildOpciones()
+    {
+        opciones = new ApexChartOptions<DatoSensor>
+        {
+            Xaxis = new XAxis
+            {
+                Type = XAxisType.Datetime,
+                Labels = new XAxisLabels { Format = "yyyy/MM/dd HH:mm:ss", DatetimeUTC = false }
+            },
+            Yaxis = new List<YAxis>
+            {
+                new YAxis { ForceNiceScale = true, DecimalsInFloat = 2 }
+            },
+            Tooltip = new Tooltip
+            {
+                X = new TooltipX { Format = "yyyy/MM/dd HH:mm:ss" },
+                Y = new TooltipY { Formatter = "function (val) { return val.toFixed(2); }" }
+            },
+            Annotations = BuildAnnotations()
+        };
+    }
+
+    private async Task AplicarAnnotaciones()
+    {
+        opciones.Annotations = BuildAnnotations();
+        if (grafica != null)
+            await grafica.UpdateOptionsAsync(false, false, false);
+    }
+
+    // ─── Datos: solo actualiza series, NO recrea el componente ──────────────────
+
+    private async Task AplicarSeries()
+    {
+        if (grafica != null)
+            await grafica.UpdateSeriesAsync(false);
+    }
+
+    // ─── Carga inicial de límites ────────────────────────────────────────────────
+
+    private async Task CargarLimitesAsync()
+    {
+        try
+        {
+            var sensor = await SensorService.ObtenerSensorPorIdAsync(IdSensor);
+            if (sensor != null)
+            {
+                valorMinimo = sensor.ValorMinimo;
+                valorMaximo = sensor.ValorMaximo;
+            }
+        }
+        catch { }
+
+        BuildOpciones();
+    }
+
+    // ─── Guardar rango: solo actualiza anotaciones ───────────────────────────────
+
+    private async Task GuardarRango()
+    {
+        await SensorService.ActualizarRangoAsync(IdSensor, valorMinimo, valorMaximo);
+        await AplicarAnnotaciones();
+
+        // Detener la alarma antes de re-evaluar para que suene de nuevo si sigue habiendo alertas
+        await JS.InvokeVoidAsync("alarmaAudio.detener");
+        _alarmaActiva = false;
+
+        await VerificarAlertas();
+    }
+
+    // ─── Buscar manualmente ──────────────────────────────────────────────────────
+
+    private async Task CargarDatos()
+    {
+        if (rangoFechas.Start == null || rangoFechas.End == null)
+            return;
+
+        datos   = new();
+        datosDB = new();
+        cargando = true;
+        StateHasChanged();
+        await Task.Delay(50);
+
+        var desde = rangoFechas.Start.Value;
+        var hasta = rangoFechas.End.Value.Date.AddDays(1).AddTicks(-1);
+
+        try
+        {
+            datos   = await SensorDataService.GetDatosExcelPorFechaAsync(IdSensor, desde, hasta);
+            datosDB = await SensorDataService.GetDatosPorFechaAsync(IdSensor, desde, hasta);
+            _ultimoConteoExcel = datos.Count;
+            _ultimoConteoDB    = datosDB.Count;
+        }
+        catch { }
+
+        cargando = false;
+        StateHasChanged();
+
+        await AplicarSeries();
+        await VerificarAlertas();
+    }
+
+    // ─── Auto-refresh: solo actualiza series si hay nuevos datos ────────────────
+
+    private void IniciarAutoRefresh()
+    {
+        _timer = new PeriodicTimer(TimeSpan.FromSeconds(10));
+        _ = Task.Run(async () =>
+        {
+            while (await _timer.WaitForNextTickAsync())
+                await VerificarNuevosDatos();
+        });
+    }
+
+    private async Task VerificarNuevosDatos()
+    {
+        if (rangoFechas.Start == null || rangoFechas.End == null)
+            return;
+
+        try
+        {
+            var desde = rangoFechas.Start.Value;
+            var hasta = rangoFechas.End.Value.Date.AddDays(1).AddTicks(-1);
+
+            var nuevoExcel = await SensorDataService.GetDatosExcelPorFechaAsync(IdSensor, desde, hasta);
+            var nuevoDB    = await SensorDataService.GetDatosPorFechaAsync(IdSensor, desde, hasta);
+
+            bool hayNuevos = nuevoExcel.Count != _ultimoConteoExcel
+                          || nuevoDB.Count    != _ultimoConteoDB;
+
+            if (!hayNuevos) return;
+
+            datos   = nuevoExcel;
+            datosDB = nuevoDB;
+            _ultimoConteoExcel = datos.Count;
+            _ultimoConteoDB    = datosDB.Count;
+
+            // Solo actualiza las series, el componente no se destruye
+            await InvokeAsync(async () =>
+            {
+                StateHasChanged();
+                await AplicarSeries();
+            });
+            await VerificarAlertas();
+        }
+        catch { }
+    }
+    protected async Task VerificarAlertas()
+    {
+        alertas.Clear();
+        alertasLimites.Clear();
+
+        var todasLasLecturas = new List<(string fuente, DatoSensor dato)>();
+
+        if (datosDB != null)
+            todasLasLecturas.AddRange(datosDB.Select(d => ("BD", d)));
+        if (datos != null)
+            todasLasLecturas.AddRange(datos.Select(d => ("Excel", d)));
+
+        const double tolerancia = 0.001;
+
+        foreach (var (fuente, dato) in todasLasLecturas)
+        {
+            double valor = dato.Dato;
+            bool enLimiteMin = Math.Abs(valor - valorMinimo) <= tolerancia;
+            bool enLimiteMax = Math.Abs(valor - valorMaximo) <= tolerancia;
+            bool bajoMinimo  = valor < valorMinimo && !enLimiteMin;
+            bool sobreMaximo = valor > valorMaximo && !enLimiteMax;
+
+            if (enLimiteMin || enLimiteMax)
+                alertasLimites.Add($"[{fuente}] Valor {valor:F2} está en el límite ({(enLimiteMin ? "mínimo" : "máximo")})");
+            else if (bajoMinimo)
+                alertas.Add($"[{fuente}] Valor {valor:F2} está por debajo del mínimo ({valorMinimo:F2})");
+            else if (sobreMaximo)
+                alertas.Add($"[{fuente}] Valor {valor:F2} está por encima del máximo ({valorMaximo:F2})");
+        }
+
+        bool hayAlertas = alertas.Any() || alertasLimites.Any();
+
+        if (hayAlertas && !_alarmaActiva)
+        {
+            await JS.InvokeVoidAsync("alarmaAudio.sonar");
+            _alarmaActiva = true;
+        }
+        else if (!hayAlertas && _alarmaActiva)
+        {
+            await JS.InvokeVoidAsync("alarmaAudio.detener");
+            _alarmaActiva = false;
+        }
+
+        await InvokeAsync(StateHasChanged);
+    }
+        protected async Task SilenciarAlarma()
+        {
+            await JS.InvokeVoidAsync("alarmaAudio.detener");
+            _alarmaActiva = false;
+        }
+    protected void Regresar() => NavManager.NavigateTo("/Ver-sensores");
+    protected void IrADatos() => NavManager.NavigateTo($"/datos-sensor/{IdSensor}");
+    public async ValueTask DisposeAsync()
+    {
+        _timer?.Dispose();
+        await Task.CompletedTask;
+    }
+}

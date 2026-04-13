@@ -1,0 +1,1 @@
+C:\Users\Asus\Documents\Visual Studio 2017\Marinela\bin\Release\net10.0-windows10.0.19041.0\win-x64\AppPackages\Marinela_1.2.6.0_Test\Marinela_1.2.6.0_x64.msix

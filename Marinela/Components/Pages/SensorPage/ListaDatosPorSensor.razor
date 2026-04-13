@@ -1,0 +1,241 @@
+@page "/datos-sensor/{IdSensor:int}"
+
+@using Marinela.Models.DatosSensores
+@using Marinela.ViewModels.DatoSensorController
+@using Marinela.ViewModels.SensorController
+@using Marinela.ViewModels.PDFController
+
+@using MudBlazor
+
+@inject DatoSensorService SensorDataService
+@inject SensorService SensorService
+@inject NavigationManager NavManager
+@inject ISnackbar Snackbar
+@inject PdfService PdfService
+
+<div class="d-flex align-items-center mb-3">
+    <button class="btn btn-outline-secondary me-3" @onclick="Regresar">
+        <i class="bi bi-arrow-left"></i> Regresar
+    </button>
+    <h3 class="mb-0">@tituloTabla</h3>
+     <button class="btn btn-success ms-2" @onclick="ExportarPdf">
+        <i class="bi bi-file-earmark-pdf"></i> Exportar PDF
+    </button> 
+
+    <button class="btn btn-outline-primary ms-auto" @onclick="IrAGrafica">
+        <i class="bi bi-graph-up"></i> Ver Gráfica
+    </button>
+</div>
+
+<div class="row mb-4 align-items-end">
+    <div class="col-md-8">
+        <MudDateRangePicker Label="Rango de fechas"
+                            @bind-DateRange="rangoFechas"
+                            Variant="Variant.Outlined"
+                            DateFormat="dd/MM/yyyy"
+                            Clearable="true" />
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary w-100" @onclick="BuscarDatos">
+            <i class="bi bi-search"></i> Buscar
+        </button>
+    </div>
+</div>
+
+@if (cargando)
+{
+    <div class="text-center my-4">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2">Cargando datos...</p>
+    </div>
+}
+else if (resultado == null || !resultado.Data.Any())
+{
+    <div class="alert alert-warning">
+        No se encontraron datos en el rango de fechas seleccionado.
+    </div>
+}
+else
+{
+    <p class="text-muted">@resultado.TotalRegistros registro(s) encontrados</p>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Sensor</th>
+                    <th>Dato</th>
+                    <th>Creado En</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var (item, index) in resultado.Data.Select((d, i) => (d, i)))
+                {
+                    <tr>
+                        <td>@((resultado.PaginaActual - 1) * registrosPorPagina + index + 1)</td>
+                        <td>@item.Sensor.Nombre</td>
+                        <td>@item.Dato.ToString("F2")</td>
+                        <td>@item.Creado_En.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+        <p class="text-muted mb-0">
+            Página @resultado.PaginaActual de @resultado.TotalPaginas
+        </p>
+        <nav>
+            <ul class="pagination mb-0">
+                <li class="page-item @(resultado.PaginaActual == 1 ? "disabled" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(1)">
+                        <i class="bi bi-chevron-double-left"></i>
+                    </button>
+                </li>
+                <li class="page-item @(resultado.PaginaActual == 1 ? "disabled" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(resultado.PaginaActual - 1)">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                </li>
+
+                @foreach (var pagina in PaginasVisibles)
+                {
+                    <li class="page-item @(pagina == resultado.PaginaActual ? "active" : "")">
+                        <button class="page-link" @onclick="() => CambiarPagina(pagina)">@pagina</button>
+                    </li>
+                }
+
+                <li class="page-item @(resultado.PaginaActual == resultado.TotalPaginas ? "disabled" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(resultado.PaginaActual + 1)">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </li>
+                <li class="page-item @(resultado.PaginaActual == resultado.TotalPaginas ? "disabled" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(resultado.TotalPaginas)">
+                        <i class="bi bi-chevron-double-right"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+}
+
+@code {
+    [Parameter] public int IdSensor { get; set; }
+
+    // ✅ Ahora usa PaginatedResult en lugar de List<DatoSensor>
+    private PaginatedResult<DatoSensor>? resultado;
+    private bool cargando = false;
+    private string tituloTabla = "Cargando...";
+
+    private DateRange rangoFechas = new DateRange(DateTime.Now.Date, DateTime.Now.Date);
+    private int registrosPorPagina = 10;
+
+    // ✅ PaginasVisibles ahora lee de resultado
+    private IEnumerable<int> PaginasVisibles
+    {
+        get
+        {
+            if (resultado == null) return Enumerable.Empty<int>();
+            int rango = 2;
+            int inicio = Math.Max(1, resultado.PaginaActual - rango);
+            int fin = Math.Min(resultado.TotalPaginas, resultado.PaginaActual + rango);
+            return Enumerable.Range(inicio, fin - inicio + 1);
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await Task.Delay(2000);
+            var sensores = await SensorService.ListarSensoresAsync();
+            var sensor = sensores.FirstOrDefault(s => s.IdSensor == IdSensor);
+            tituloTabla = sensor != null ? $"Datos - {sensor.Nombre}" : $"Datos Sensor #{IdSensor}";
+
+            await CargarDatos(1);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al cargar los datos: {ex.Message}", Severity.Error);
+        }
+    }
+
+    // ✅ Buscar reinicia a página 1
+    private async Task BuscarDatos()
+    {
+        await CargarDatos(1);
+    }
+
+    // ✅ CargarDatos ahora recibe la página y llama al servicio con paginación
+    private async Task CargarDatos(int pagina)
+    {
+        if (rangoFechas.Start == null || rangoFechas.End == null) return;
+
+        cargando = true;
+        resultado = null;
+        StateHasChanged();
+
+        resultado = await SensorDataService.ListarDatosPorSensorAsync(
+            IdSensor,
+            rangoFechas.Start.Value,
+            rangoFechas.End.Value.AddHours(23).AddMinutes(59).AddSeconds(59),
+            pagina,
+            registrosPorPagina
+        );
+
+        cargando = false;
+    }
+
+    private async Task ExportarPdf()
+    {
+        if (rangoFechas.Start == null || rangoFechas.End == null)
+        {
+            Snackbar.Add("Selecciona un rango de fechas válido.", Severity.Warning);
+            return;
+        }
+
+        // 🔹 Obtener TODOS los registros del sensor en el rango
+        var todosLosDatos = await SensorDataService.ListarDatosPorSensorAsync(
+            IdSensor,
+            rangoFechas.Start.Value,
+            rangoFechas.End.Value.AddHours(23).AddMinutes(59).AddSeconds(59),
+            pagina: 1,
+            tamanoPagina: int.MaxValue // truco para traer todo
+        );
+
+        if (todosLosDatos == null || !todosLosDatos.Data.Any())
+        {
+            Snackbar.Add("No hay datos para exportar.", Severity.Warning);
+            return;
+        }
+
+        var pdfBytes = PdfService.GenerarPdf(
+            todosLosDatos.Data.ToList(),
+            tituloTabla,
+            rangoFechas.Start.Value,
+            rangoFechas.End.Value
+        );
+
+        var path = Path.Combine(FileSystem.AppDataDirectory, "datos-sensor.pdf");
+        File.WriteAllBytes(path, pdfBytes);
+
+        await Launcher.OpenAsync(new OpenFileRequest
+        {
+            File = new ReadOnlyFile(path)
+        });
+    }
+
+    // ✅ CambiarPagina ahora llama al servidor
+    private async Task CambiarPagina(int pagina)
+    {
+        if (resultado == null) return;
+        if (pagina < 1 || pagina > resultado.TotalPaginas) return;
+        await CargarDatos(pagina);
+    }
+
+    private void Regresar() => NavManager.NavigateTo("/Ver-sensores");
+    private void IrAGrafica() => NavManager.NavigateTo($"/grafica-sensor/{IdSensor}");
+}

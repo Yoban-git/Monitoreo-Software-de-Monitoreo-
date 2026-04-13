@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="../MarinelaCore/MarinelaCore.csproj" Id="579ef67f-1f0d-4b81-8fff-ac015368f8c7" />
+  <Project Path="../UnitTestMarinela.Tests/UnitTestMarinela.Tests.csproj" Id="d7d72a74-2c9e-4867-bae2-03378c394606" />
+  <Project Path="Marinela.csproj" />
+</Solution>

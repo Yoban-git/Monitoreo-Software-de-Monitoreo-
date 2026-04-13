@@ -1,0 +1,82 @@
+@page "/editar-sensor/{idSensor:int}"
+@using Marinela.Models.Sensores
+@using Marinela.ViewModels.SensorController
+@inject SensorService SensorController
+@inject NavigationManager navManagers
+@inject ISnackbar Snackbar
+
+<h3>Editar Sensor</h3>
+
+@if (sensor == null)
+{
+    <p>Cargando sensor...</p>
+}
+else
+{
+    <EditForm Model="sensor" OnValidSubmit="GuardarCambios">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <InputText id="nombre" class="form-control" @bind-Value="sensor.Nombre" />
+        </div>
+
+        <div class="mb-3">
+            <label for="tag" class="form-label">Tag</label>
+            <InputText id="tag" class="form-control" @bind-Value="sensor.Tag" />
+        </div>
+
+        <div class="mb-3">
+            <label for="valorMinimo" class="form-label">Valor Minimo</label>
+            <InputNumber id="valorMinimo" class="form-control" @bind-Value="sensor.ValorMinimo" />
+        </div>
+
+        <div class="mb-3">
+            <label for="valorMaximo" class="form-label">Valor Maximo</label>
+            <InputNumber id="valorMaximo" class="form-control" @bind-Value="sensor.ValorMaximo" />
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-secondary" @onclick="VolverALista">Cancelar</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int idSensor { get; set; }
+    private Sensor? sensor;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            sensor = await SensorController.ObtenerSensorPorIdAsync(idSensor);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al cargar los datos: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private async Task GuardarCambios()
+    {
+        var resultado = await SensorController.ActualizarSensorAsync(sensor!);
+
+        if (resultado.Exito)
+        {
+            Snackbar.Add("Registro actualizado correctamente", Severity.Success);
+            navManagers.NavigateTo("/sensores-list");
+        }
+        else
+        {
+            //Console.WriteLine($"Error: {resultado.Error}");
+            Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+        }
+    }
+
+    private void VolverALista()
+    {
+        navManagers.NavigateTo("/sensores-list");
+    }
+}

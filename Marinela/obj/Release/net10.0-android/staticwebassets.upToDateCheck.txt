@@ -1,0 +1,11 @@
+wwwroot\app.css
+wwwroot\Images\Osito_Bimbo-dialogo.png
+wwwroot\Images\osito_bimbo.png
+wwwroot\audio\alert.mp3
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+wwwroot\index.html
+wwwroot\js\alarma.js
+wwwroot\audio\-Error-.mp3
+C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview\10.0.0\build\..\staticwebassets\blazor.webview.js
+C:\Users\Asus\.nuget\packages\microsoft.aspnetcore.components.webview\10.0.0\build\..\staticwebassets\blazor.modules.json

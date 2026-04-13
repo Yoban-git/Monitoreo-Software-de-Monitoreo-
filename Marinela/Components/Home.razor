@@ -1,0 +1,135 @@
+@page "/"
+@inject NavigationManager navigationManager
+
+  <div class="panel-home">
+
+    <div class="mascot-section">
+      <img src="Images/osito_bimbo-dialogo.png" alt="Osito Chef" />
+    </div>
+
+    <div class="action-section">
+      <p>Empezar a monitorear</p>
+      <button class="btn-sensores" onclick="window.location.href='/Ver-Sensores'">
+        Ir a sensor
+      </button>
+    </div>
+
+  </div>
+
+@code {
+    private void IrASensores()
+    {
+        // Navega a la página Ver-Sensores
+        navigationManager.NavigateTo("/Ver-Sensores");
+    }
+}
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .panel-home {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 780px;
+      padding: 40px 30px;
+      background: #fff;
+    }
+
+    .mascot-section {
+      position: relative;
+      width: 320px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .speech-bubble {
+      position: absolute;
+      top: 0;
+      left: 100px;
+      background: #fff;
+      border: 2.5px solid #222;
+      border-radius: 18px;
+      padding: 14px 18px;
+      font-size: 15px;
+      line-height: 1.4;
+      font-weight: 500;
+      color: #111;
+      width: 190px;
+      z-index: 2;
+    }
+
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 28px;
+      border-width: 20px 14px 0 0;
+      border-style: solid;
+      border-color: #222 transparent transparent transparent;
+    }
+
+    .speech-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 31px;
+      border-width: 16px 10px 0 0;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+      z-index: 1;
+    }
+
+    .mascot-img {
+      width: 210px;
+      margin-top: 85px;
+      object-fit: contain;
+    }
+
+    .action-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      padding-right: 20px;
+    }
+
+    .action-section p {
+      font-size: 17px;
+      color: #333;
+      font-weight: 400;
+    }
+
+    .btn-sensores {
+      padding: 12px 36px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      background: #28a745;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 3px 10px rgba(40,167,69,0.30);
+      letter-spacing: 0.3px;
+    }
+
+    .btn-sensores:hover {
+      background: #218838;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(40,167,69,0.35);
+    }
+
+    .btn-sensores:active {
+      background: #1e7e34;
+      transform: translateY(0);
+    }
+  </style>

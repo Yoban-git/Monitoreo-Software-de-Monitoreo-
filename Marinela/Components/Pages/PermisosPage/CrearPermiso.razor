@@ -1,0 +1,77 @@
+@page "/Crear-Permiso"
+@using Marinela.Models.Permisos
+@using Marinela.Models.RolesPermisos
+@using Marinela.ViewModels.PermisoController
+@inject PermisoService PermisoService
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+<h3>Crear Permiso</h3>
+
+@if (!string.IsNullOrEmpty(mensaje))
+{
+    <div class="alert @(exito ? "alert-success" : "alert-danger")">
+        @mensaje
+    </div>
+}
+
+<EditForm Model="nuevoPermiso" OnValidSubmit="GuardarPermiso">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nombre">Nombre del Permiso</label>
+        <InputText id="nombre" class="form-control" @bind-Value="nuevoPermiso.NombrePermiso" />
+    </div>
+
+    <button type="submit" class="btn btn-success" disabled="@guardar">@(guardar ? "Guardando..." : "Guardar")</button>
+    <button type="button" class="btn btn-secondary" @onclick="Volver">Cancelar</button>
+</EditForm>
+
+@code {
+    private Permiso nuevoPermiso = new Permiso
+    {
+        NombrePermiso = string.Empty,
+        RolPermisos = new List<RolPermiso>()
+    };
+
+    private string mensaje = string.Empty;
+    private bool exito = false;
+    private bool guardar = false;
+
+    private async Task GuardarPermiso()
+    {
+        guardar = true; // activar estado de guardado
+        try
+        {
+            var resultado = await PermisoService.AgregarPermisoAsync(nuevoPermiso);
+
+            if (resultado.Exito)
+            {
+                exito = true;
+                await Task.Delay(1000); // delay para mostrar mensaje de éxito
+                mensaje = "Permiso creado exitosamente.";
+                Snackbar.Add("Registro guardado correctamente", Severity.Success);
+                NavigationManager.NavigateTo("/Lista_Permisos");
+            }
+            else
+            {
+                guardar = false; // resetear estado de guardado
+                exito = false;
+                mensaje = resultado.Error ?? "Error desconocido al crear permiso.";
+                Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            guardar = false; // resetear estado de guardado
+            exito = false;
+            mensaje = $"Error inesperado: {ex.Message}";
+            Snackbar.Add($"Error: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/Lista_Permisos");
+    }
+}

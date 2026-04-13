@@ -1,0 +1,95 @@
+@page "/editar-permiso/{idPermiso:int}"
+@using Marinela.Models.Permisos
+@using Marinela.Models.RolesPermisos
+@using Marinela.ViewModels.PermisoController
+@inject PermisoService PermisoService
+@inject NavigationManager NavigationManager
+@inject ISnackbar Snackbar
+
+<h3>Editar Permiso</h3>
+
+@if (!string.IsNullOrEmpty(mensaje))
+{
+    <div class="alert @(exito ? "alert-success" : "alert-danger")">
+        @mensaje
+    </div>
+}
+
+@if (permiso == null)
+{
+    <p>Cargando permiso...</p>
+}
+else
+{
+    <EditForm Model="permiso" OnValidSubmit="ActualizarPermiso">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label for="nombre">Nombre del Permiso</label>
+            <InputText id="nombre" class="form-control" @bind-Value="permiso.NombrePermiso" />
+        </div>
+
+        <button type="submit" class="btn btn-primary" disabled="@guardar">@(guardar ? "Guardando..." : "Guardar Cambios")</button>
+        <button type="button" class="btn btn-secondary" @onclick="Volver">Cancelar</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int idPermiso { get; set; }
+
+    private Permiso? permiso;
+    private string mensaje = string.Empty;
+    private bool exito = false;
+    private bool guardar = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            permiso = await PermisoService.ObtenerPermisoAsyncPorId(idPermiso);
+        }
+        catch (Exception ex)
+        {
+            mensaje = $"Error al cargar permiso: {ex.Message}";
+            permiso = new Permiso { NombrePermiso = string.Empty, RolPermisos = new List<RolPermiso>() };
+        }
+    }
+
+    private async Task ActualizarPermiso()
+    {
+        guardar = true; // activar estado de guardado
+        try
+        {
+            var resultado = await PermisoService.ActualizarPermisoAsync(permiso!);
+
+            if (resultado.Exito)
+            {
+                exito = true;
+                await Task.Delay(1000); // delay para mostrar mensaje de éxito
+                mensaje = "Permiso actualizado exitosamente.";
+                Snackbar.Add("Registro actualizado correctamente", Severity.Success);
+                NavigationManager.NavigateTo("/Lista_Permisos");
+            }
+            else
+            {
+                guardar = false; // resetear estado de guardado
+                exito = false;
+                mensaje = resultado.Error ?? "Error desconocido al actualizar permiso.";
+                Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+            }
+        }
+        catch (Exception ex)
+        {
+            guardar = false; // resetear estado de guardado
+            exito = false;
+            mensaje = $"Error inesperado: {ex.Message}";
+            Snackbar.Add($"Error inesperado:{ex.Message}", Severity.Error);
+        }
+    }
+
+    private void Volver()
+    {
+        NavigationManager.NavigateTo("/Lista_Permisos");
+    }
+}

@@ -1,0 +1,10 @@
+<api type="debug" assembly-name="Marinela" mvid="a069f91e4c494284bf9efdb2997b4595">
+  <java-to-managed>
+    <entry java-name="crc644cc01b3fc5b7edbb/MainActivity" managed-name="Marinela.MainActivity, Marinela" managed-type-token-id="33554450" />
+    <entry java-name="crc644cc01b3fc5b7edbb/MainApplication" managed-name="Marinela.MainApplication, Marinela" managed-type-token-id="33554451" />
+  </java-to-managed>
+  <managed-to-java>
+    <entry java-name="crc644cc01b3fc5b7edbb/MainActivity" managed-name="Marinela.MainActivity, Marinela" managed-type-token-id="33554450" />
+    <entry java-name="crc644cc01b3fc5b7edbb/MainApplication" managed-name="Marinela.MainApplication, Marinela" managed-type-token-id="33554451" />
+  </managed-to-java>
+</api>

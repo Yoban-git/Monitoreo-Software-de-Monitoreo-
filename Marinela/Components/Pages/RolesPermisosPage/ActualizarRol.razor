@@ -1,0 +1,169 @@
+@page "/actualizar-rol/{idRol:int}"
+@using Marinela.Models.Roles
+@using Marinela.Models.Permisos
+@using Marinela.Models.RolesPermisos
+@using Marinela.ViewModels.RolController
+@using Marinela.ViewModels.PermisoController
+@using Marinela.ViewModels.RolPermisoController
+
+@inject RolService _rolService
+@inject PermisoService _permisoService
+@inject RolPermisoService _rolPermisoService
+@inject NavigationManager navManagers
+@inject ISnackbar Snackbar
+
+<h3>Actualizar Rol</h3>
+
+@if (!string.IsNullOrEmpty(mensajeError))
+{
+    <div class="alert alert-danger">@mensajeError</div>
+}
+@if (!string.IsNullOrEmpty(mensajeExito))
+{
+    <div class="alert alert-success">@mensajeExito</div>
+}
+
+@if (cargando)
+{
+    <p>Cargando datos del rol...</p>
+}
+else
+{
+    <EditForm Model="rolActual" OnValidSubmit="GuardarRol">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="form-floating mb-3">
+            <InputText class="form-control" id="nombreRol" @bind-Value="rolActual.NombreRol" />
+            <label for="nombreRol">Nombre del Rol</label>
+            <ValidationMessage For="@(() => rolActual.NombreRol)" />
+        </div>
+
+        <h5>Permisos asociados</h5>
+        <div class="row row-cols-2 row-cols-md-4 g-2" style="margin-left:20px;">
+            @foreach (var permiso in permisos)
+            {
+                bool asignado = permisosSeleccionados.Contains(permiso.IdPermiso);
+                <div class="col">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="permiso_@permiso.IdPermiso"
+                            checked="@asignado"
+                            @onchange="(e) => TogglePermisoLocal(permiso.IdPermiso, (bool)e.Value)" />
+                        <label class="form-check-label" for="permiso_@permiso.IdPermiso">
+                            @permiso.NombrePermiso
+                        </label>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <button type="submit" class="btn btn-success mt-3" disabled="@guardar">@(guardar ? "Guardando..." : "Guardar Cambios")</button>
+        <button type="button" class="btn btn-secondary mt-3" @onclick="Cancelar">Volver</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int idRol { get; set; }
+
+    private Rol rolActual = new Rol();
+    private List<Permiso> permisos = new();
+    private HashSet<int> permisosSeleccionados = new();
+
+    private string mensajeError = string.Empty;
+    private string mensajeExito = string.Empty;
+    private bool cargando = true;
+    private bool guardar = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarDatos();
+    }
+
+    private async Task CargarDatos()
+    {
+        try
+        {
+            cargando = true;
+
+            // Cargar rol por Id
+            rolActual = await _rolService.ObtenerRolPorIdAsync(idRol) 
+                        ?? new Rol { NombreRol = string.Empty, RolPermisos = new List<RolPermiso>() };
+
+            // Cargar todos los permisos
+            permisos = await _permisoService.ObtenerTodosPermisosAsync() ?? new List<Permiso>();
+
+            // Cargar permisos asociados al rol
+            var permisosActuales = await _rolPermisoService.ObtenerPermisosPorRolAsync(idRol) ?? new List<Permiso>();
+            permisosSeleccionados = permisosActuales.Select(p => p.IdPermiso).ToHashSet();
+
+            cargando = false;
+        }
+        catch (Exception ex)
+        {
+            mensajeError = $"Error al cargar datos: {ex.Message}";
+            cargando = false;
+        }
+    }
+
+    private async Task GuardarRol()
+    {
+        guardar = true; // resetear estado de guardado
+        try
+        {
+            rolActual.NombreRol = rolActual.NombreRol?.Trim() ?? string.Empty;
+            rolActual.RolPermisos ??= new List<RolPermiso>();
+
+            var resultado = await _rolService.ActualizarRolAsync(rolActual);
+
+            if (resultado.Exito)
+            {
+                // Actualizar permisos asociados
+                var permisosActuales = await _rolPermisoService.ObtenerPermisosPorRolAsync(rolActual.IdRol) ?? new List<Permiso>();
+                var idsActuales = permisosActuales.Select(p => p.IdPermiso).ToHashSet();
+
+                var agregar = permisosSeleccionados.Except(idsActuales);
+                foreach (var idPermiso in agregar)
+                    await _rolPermisoService.AsignarPermisoARolAsync(rolActual.IdRol, idPermiso);
+
+                var eliminar = idsActuales.Except(permisosSeleccionados);
+                foreach (var idPermiso in eliminar)
+                    await _rolPermisoService.EliminarPermisoDeRolAsync(rolActual.IdRol, idPermiso);
+
+                // Espera de 1 segundo antes de mostrar éxito
+                await Task.Delay(1000);
+
+                //mensajeExito = "Rol y permisos actualizados correctamente.";
+                Snackbar.Add("Rol y permisos actualizados correctamente.", Severity.Success);
+                mensajeError = string.Empty;
+                navManagers.NavigateTo("/Lista_Roles");
+            }
+            else
+            {
+                guardar = false; // resetear estado de guardado
+                //mensajeError = resultado.Error ?? "Error desconocido al actualizar rol.";
+                Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+                mensajeExito = string.Empty;
+            }
+        }
+        catch (Exception ex)
+        {
+            guardar = false; // resetear estado de guardado
+            mensajeError = $"Error inesperado al guardar rol: {ex.Message}";
+            Snackbar.Add($"Error inesperado al guardar rol: {ex.Message}", Severity.Error);
+            mensajeExito = string.Empty;
+        }
+    }
+
+    private void Cancelar()
+    {
+        navManagers.NavigateTo("/Lista_Roles");
+    }
+
+    private void TogglePermisoLocal(int idPermiso, bool asignar)
+    {
+        if (asignar)
+            permisosSeleccionados.Add(idPermiso);
+        else
+            permisosSeleccionados.Remove(idPermiso);
+    }
+}

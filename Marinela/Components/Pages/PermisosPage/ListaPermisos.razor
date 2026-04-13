@@ -1,0 +1,180 @@
+@page "/Lista_Permisos"
+@using Marinela.Models.Permisos
+@using Marinela.Shared
+@using Marinela.ViewModels.Login
+@using Marinela.ViewModels.PermisoController
+
+@inject PermisoService _permisoService
+@inject AuthService _AuthService
+@inject NavigationManager navManagers
+@inject ISnackbar Snackbar
+
+<h2>Gestión de Permisos</h2>
+
+@if (permisos == null)
+{
+    <p>Ningún permiso encontrado.</p>
+}
+else if (!permisos.Any())
+{
+    <div class="text-center mb-3">
+        <Spinner/>
+        <p>Cargando Permisos...</p>
+    </div>
+}
+else
+{
+    @if(_AuthService.TienePermiso("Agregar_Permisos"))
+    {
+        <div class="text-center mb-3">
+            <button class="btn btn-success" @onclick="IrACrearPermiso">Agregar Permiso</button>
+        </div>
+    }
+    <!-- Caja de búsqueda -->
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar permiso..."
+            @bind="searchText" />
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var permiso in PermisosPaginados)
+            {
+                <tr>
+                    <td>@(permiso.NombrePermiso ?? "Sin nombre")</td>
+                    <td>
+                        @if(_AuthService.TienePermiso("Editar_Permisos"))
+                        {
+                            <button class="btn btn-warning btn-sm me-2" @onclick="() => IraEditarPermiso(permiso.IdPermiso)">
+                                <span class="bi bi-pencil-square"> Editar</span>
+                            </button>
+                        }
+                        @if(_AuthService.TienePermiso("Eliminar_Permisos"))
+                        {   
+                            <button class="btn btn-danger btn-sm" @onclick="() => EliminarPermiso(permiso.IdPermiso)">
+                                <span class="bi bi-trash3"> Eliminar</span>
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+        <!-- Paginación -->
+    <nav aria-label="Paginación de permisos">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item @(paginaActual == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual - 1)">
+                    &laquo; Anterior
+                </button>
+            </li>
+
+            @for (int i = 1; i <= TotalPaginas; i++)
+            {
+                var numeroPagina = i;
+                <li class="page-item @(paginaActual == numeroPagina ? "active" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(numeroPagina)">
+                        @numeroPagina
+                    </button>
+                </li>
+            }
+
+            <li class="page-item @(paginaActual == TotalPaginas ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual + 1)">
+                    Siguiente &raquo;
+                </button>
+            </li>
+
+        </ul>
+        <p class="text-center text-muted small">
+            Página @paginaActual de @TotalPaginas — @permisos.Count permisos en total
+        </p>
+    </nav>
+}
+
+@if (!string.IsNullOrEmpty(mensajeError))
+{
+    <div class="alert alert-danger mt-3">@mensajeError</div>
+}
+@if (!string.IsNullOrEmpty(mensajeExito))
+{
+    <div class="alert alert-success mt-3">@mensajeExito</div>
+}
+
+@code {
+    private List<Permiso> permisos = new();
+    private Permiso permisoActual = new Permiso();
+
+    private string mensajeError = string.Empty;
+    private string mensajeExito = string.Empty;
+    //fitro
+    private string searchText = string.Empty;
+    private IEnumerable<Permiso> PermisosFiltrados => string.IsNullOrWhiteSpace(searchText)
+        ? permisos
+        : permisos.Where(p => 
+            (p.NombrePermiso != null && p.NombrePermiso.Contains(searchText, StringComparison.OrdinalIgnoreCase)));
+        // --- Paginación ---
+    private int paginaActual = 1;
+    private int tamanioPagina = 10;
+    private int TotalPaginas => (int)Math.Ceiling((double)PermisosFiltrados.Count() / tamanioPagina);
+    private IEnumerable<Permiso> PermisosPaginados =>
+        PermisosFiltrados.Skip((paginaActual - 1) * tamanioPagina).Take(tamanioPagina);
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Delay inicial antes de cargar
+            await Task.Delay(1000); // espera 2 segundos
+            permisos = await _permisoService.ObtenerTodosPermisosAsync();
+ 
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine($"Error al cargar permisos: {ex.Message}");
+            permisos = new List<Permiso>();
+        }
+    }
+        // ------------------
+    private void CambiarPagina(int pagina)
+    {
+        if (pagina < 1 || pagina > TotalPaginas) return;
+        paginaActual = pagina;
+    }
+
+    private async Task EliminarPermiso(int idPermiso)
+    {
+        var resultado = await _permisoService.EliminarPermisoAsync(idPermiso);
+        if (resultado.Exito) 
+        {
+            mensajeExito = "Permiso eliminado.";
+            mensajeError = string.Empty; 
+            await Task.Delay(1000); // delay antes de recargar
+            permisos = await _permisoService.ObtenerTodosPermisosAsync();
+            Snackbar.Add("Registro eliminado correctamente", Severity.Success);
+
+        }
+        else 
+        { 
+            mensajeError = resultado.Error; 
+            mensajeExito = string.Empty; 
+            Snackbar.Add($"Error:{resultado.Error}", Severity.Error);
+        }
+    }
+    private void IrACrearPermiso()
+    {
+        navManagers.NavigateTo("/Crear-Permiso");
+    }
+    private void IraEditarPermiso(int idPermiso)
+    {
+        navManagers.NavigateTo($"/Editar-permiso/{idPermiso}");
+    }
+
+}

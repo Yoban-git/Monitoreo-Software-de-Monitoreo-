@@ -1,0 +1,199 @@
+﻿@page "/usuarios-list"
+@using Marinela.Models.Usuarios
+@using Marinela.Models.Roles
+@using Marinela.Models.Data
+@using Marinela.Shared
+@using Marinela.ViewModels.Login
+@using Marinela.ViewModels.UsuarioController
+@using Marinela.ViewModels.RolController
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.IdentityModel.Tokens
+
+@inject NavigationManager navManagers
+@inject AppDbContext _context
+@inject UsuarioService UsuarioService
+@inject AuthService _AuthService
+@inject ISnackbar Snackbar
+
+<h3>Lista de Usuarios</h3>
+
+@if (usuarios == null)
+{
+    <p>no hay usuarios...</p>
+}
+else if (!usuarios.Any())
+{
+    <div class="text-center mb-3">
+        <Spinner/>
+        <p>Cargando Usuarios...</p>
+    </div>
+}
+else
+{
+    @if(_AuthService.TienePermiso("Agregar_Usuarios"))
+    {
+        <div class="text-center mb-3">
+            <button class="btn btn-success" @onclick="IrACrearUsuario">Agregar Usuario</button>
+        </div>
+    }
+        <!-- Caja de búsqueda -->
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar nombre o usuario..."
+            @bind="searchText" />
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Rol</th>
+                <th>Creado</th>
+                <th>Modificado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in UsuariosPaginados)
+            {
+                <tr>
+                    <td>@(usuario.Nombre ?? "Sin nombre")</td>
+                    <td>@(usuario.UserName ?? "Sin usuario")</td>
+                    <td>@(usuario.Email ?? "Sin correo")</td>
+                    <td>@(usuario.Activo ? "Activo" : "Inactivo")</td>
+                    <td>@(usuario.Rol?.NombreRol ?? "Sin rol")</td>
+                    <td>@usuario.Creado_En.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@usuario.Modificado_En.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>
+                        @if(_AuthService.TienePermiso("Activar_Cuentas"))
+                        {
+                            <button class="btn @(usuario.Activo ? "btn-danger" : "btn-success") btn-sm me-2"
+                                        @onclick="() => CambiarEstado(usuario.Id)">
+                                    <span class="bi bi-power"> @(usuario.Activo ? " Desactivar" : " Activar")</span>
+                            </button>
+                        }
+                        @if(_AuthService.TienePermiso("Editar_Usuarios"))
+                        {
+                            <button class="btn btn-warning btn-sm me-2" @onclick="() => IraEditarUsuario(usuario.Id)">
+                                <span class="bi bi-pencil-square"></span>
+                            </button>
+                        }
+                        @if(_AuthService.TienePermiso("Editar_Usuarios"))
+                        {
+                            <button class="btn btn-warning btn-sm" @onclick="() => IraCambiarPassword(usuario.Id)">
+                                <span class="bi bi-key"></span>
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+        <!-- Paginación -->
+    <nav aria-label="Paginación de usuarios">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item @(paginaActual == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual - 1)">
+                    &laquo; Anterior
+                </button>
+            </li>
+
+            @for (int i = 1; i <= TotalPaginas; i++)
+            {
+                var numeroPagina = i;
+                <li class="page-item @(paginaActual == numeroPagina ? "active" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(numeroPagina)">
+                        @numeroPagina
+                    </button>
+                </li>
+            }
+
+            <li class="page-item @(paginaActual == TotalPaginas ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual + 1)">
+                    Siguiente &raquo;
+                </button>
+            </li>
+
+        </ul>
+        <p class="text-center text-muted small">
+            Página @paginaActual de @TotalPaginas — @usuarios.Count usuarios en total
+        </p>
+    </nav>
+}
+
+@code {
+    private List<Usuario> usuarios = new(); // inicializado para evitar null
+    private string mensajeError = string.Empty;
+    private string mensajeExito = string.Empty;
+    //fitro
+    private string searchText = string.Empty;
+    private IEnumerable<Usuario> UsuariosFiltrados => string.IsNullOrWhiteSpace(searchText)
+        ? usuarios : usuarios.Where(u => u.Nombre != null  && u.Nombre.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+
+    // --- Paginación ---
+    private int paginaActual = 1;
+    private int tamanioPagina = 10;
+    private int TotalPaginas => (int)Math.Ceiling((double)UsuariosFiltrados.Count() / tamanioPagina);
+    private IEnumerable<Usuario> UsuariosPaginados =>
+        UsuariosFiltrados.Skip((paginaActual - 1) * tamanioPagina).Take(tamanioPagina);
+    
+    private void CambiarPagina(int pagina)
+    {
+        if (pagina < 1 || pagina > TotalPaginas) return;
+        paginaActual = pagina;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await Task.Delay(1000);
+            if(_AuthService.TienePermiso("Ver_Usuarios"))
+            {
+                usuarios = await UsuarioService.ObtenerTodosUsuariosAsync();
+            }
+            if(_AuthService.TienePermiso("Ver_Usuarios_Activos"))
+            {
+                usuarios = await UsuarioService.ObtenerUsuariosActivosAsync();
+            }
+            
+        }
+        catch (Exception ex)
+        {
+            mensajeError =$"Error al cargar usuarios: {ex.Message}";
+            Snackbar.Add($"Error al cargar usuarios: {ex.Message}", Severity.Error);
+            usuarios = new List<Usuario>(); // fallback seguro
+        }
+    }
+    private async Task CambiarEstado(Guid id)
+    {
+        var resultado = await UsuarioService.CambiarEstadoUsuarioAsync(id);
+        if (resultado.Exito)
+        {
+            await Task.Delay(1000); // delay antes de recargar
+            Snackbar.Add("Estado cambiado correctamente", Severity.Success);
+            usuarios = await UsuarioService.ObtenerTodosUsuariosAsync();
+        }
+        else
+        {
+            mensajeError = resultado.Error;
+            mensajeExito = string.Empty;
+            Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+        }
+    }
+
+    private void IrACrearUsuario()
+    {
+        navManagers.NavigateTo("/Crear-usuario");
+    }
+    private void IraEditarUsuario(Guid idUsuario)
+    {
+        navManagers.NavigateTo($"/Editar-usuario/{idUsuario}");
+    }
+    private void IraCambiarPassword(Guid idUsuario)
+    {
+        navManagers.NavigateTo($"/Cambiar-password/{idUsuario}");
+    }
+}

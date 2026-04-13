@@ -1,0 +1,77 @@
+@page "/Ver-sensores"
+@using Marinela.Models.Sensores
+@using Marinela.Shared
+@using Marinela.ViewModels.SensorController
+@using Marinela.ViewModels.Login
+@inject SensorService SensorController
+@inject AuthService _AuthService
+@inject NavigationManager navManager
+
+<h3>Lista de Sensores</h3>
+
+@if (sensores == null)
+{
+    <p>Cargando sensores...</p>
+}
+else if (!sensores.Any())
+{
+    <Spinner/>
+}
+else
+{
+    <div class="row">
+        @foreach (var s in sensores)
+        {
+            <div class="col-md-3 mb-3">
+                <div class="card h-100 sensor-card @(s.Activo ? "bg-light" : "bg-danger text-white")" 
+                    @onclick="() => ValidarSensor(s)" 
+                    style="cursor:pointer;">
+                    <div class="card-body">
+                        <h5 class="card-title">@s.Nombre</h5>
+                        <p class="card-text">
+                            <strong>ID:</strong> @s.IdSensor <br />
+                            <strong>Tag:</strong> @s.Tag <br />
+                            <strong>Activo:</strong> @(s.Activo ? "Sí" : "No") <br />
+                            <strong>Creado:</strong> @s.Creado_En.ToShortDateString()
+                        </p>
+
+                        @if (mensajeErrorSensorId == s.IdSensor)
+                        {
+                            <div class="alert alert-danger mt-2">
+                                @mensajeError
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<Sensor> sensores = new();
+    private string mensajeError = string.Empty;
+    private int? mensajeErrorSensorId = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000);
+        if(_AuthService.TienePermiso("Ver_Sensores"))
+            sensores = await SensorController.ListarSensoresAsync() ?? new List<Sensor>();
+        if(_AuthService.TienePermiso("Ver_Sensores_Activos"))
+            sensores = await SensorController.ListarSensoresActivosAsync() ?? new List<Sensor>();
+    }
+
+    private void ValidarSensor(Sensor sensor)
+    {
+        if(sensor.Datos != null && sensor.Datos.Any())
+        {
+            navManager.NavigateTo($"/grafica-sensor/{sensor.IdSensor}");
+        }
+        else
+        {
+            mensajeError = $"El sensor '{sensor.Nombre}' no tiene datos registrados.";
+            mensajeErrorSensorId = sensor.IdSensor;
+        }
+    }
+}

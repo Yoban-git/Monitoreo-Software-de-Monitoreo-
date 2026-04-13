@@ -1,0 +1,191 @@
+@page "/Lista_Roles"
+@using Marinela.Models.Roles
+@using Marinela.Shared
+@using Marinela.ViewModels.Login
+@using Marinela.ViewModels.RolController
+
+@inject RolService _rolService
+@inject NavigationManager navManagers
+@inject AuthService _AuthService
+@inject ISnackbar Snackbar
+
+<h3>Lista de Roles</h3>
+
+@if (!string.IsNullOrEmpty(mensajeError))
+{
+    <div class="alert alert-danger">@mensajeError</div>
+}
+@if (!string.IsNullOrEmpty(mensajeExito))
+{
+    <div class="alert alert-success">@mensajeExito</div>
+}
+
+@if (cargando)
+{
+    <div class="text-center mb-3">
+        <Spinner/>
+        <p>Cargando roles...</p>
+    </div>
+}
+else
+{
+    @if(_AuthService.TienePermiso("Agregar_Roles"))
+    {
+        <div class="text-center mb-3">
+            <button class="btn btn-success mt-3" @onclick="CrearRol">Agregar Rol</button>
+        </div>
+    }
+        <!-- Caja de búsqueda -->
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar rol..."
+            @bind="searchText" />
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nombre del Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rol in RolesPaginados)
+            {
+                <tr>
+                    <td>@(rol.NombreRol ?? "Sin nombre")</td>
+                    <td>
+                        @if(_AuthService.TienePermiso("Editar_Roles"))
+                        {
+                            <button class="btn btn-warning btn-sm me-2" @onclick="() => EditarRol(rol.IdRol)">
+                                <span class="bi bi-pencil-square"> Editar</span>
+                            </button>
+                        }
+                        @if(_AuthService.TienePermiso("Eliminar_Roles"))
+                        {
+                            <button class="btn btn-danger btn-sm" @onclick="() => EliminarRol(rol.IdRol)">
+                                <span class="bi bi-trash3"> Eliminar</span>
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+        <!-- Paginación -->
+    <nav aria-label="Paginación de roles">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item @(paginaActual == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual - 1)">
+                    &laquo; Anterior
+                </button>
+            </li>
+
+            @for (int i = 1; i <= TotalPaginas; i++)
+            {
+                var numeroPagina = i;
+                <li class="page-item @(paginaActual == numeroPagina ? "active" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(numeroPagina)">
+                        @numeroPagina
+                    </button>
+                </li>
+            }
+
+            <li class="page-item @(paginaActual == TotalPaginas ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual + 1)">
+                    Siguiente &raquo;
+                </button>
+            </li>
+
+        </ul>
+        <p class="text-center text-muted small">
+            Página @paginaActual de @TotalPaginas — @roles.Count roles en total
+        </p>
+    </nav>
+}
+
+@code {
+    private List<Rol> roles = new();
+    private string mensajeError = string.Empty;
+    private string mensajeExito = string.Empty;
+    private bool cargando = true;
+    //filtro
+    private string searchText = string.Empty;
+    private IEnumerable<Rol> Rolesfiltrados => string.IsNullOrWhiteSpace(searchText)
+        ? roles :roles.Where(r => r.NombreRol != null && r.NombreRol.Contains(searchText, StringComparison.OrdinalIgnoreCase));
+
+    // --- Paginación ---
+    private int paginaActual = 1;
+    private int tamanioPagina = 10;
+    private int TotalPaginas => (int)Math.Ceiling((double)Rolesfiltrados.Count() / tamanioPagina);
+        private IEnumerable<Rol> RolesPaginados =>
+        Rolesfiltrados.Skip((paginaActual - 1) * tamanioPagina).Take(tamanioPagina);
+    // ------------------
+    private void CambiarPagina(int pagina)
+    {
+        if (pagina < 1 || pagina > TotalPaginas) return;
+        paginaActual = pagina;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarRoles();
+    }
+
+    private async Task CargarRoles()
+    {
+        await Task.Delay(1000);
+        try
+        {
+            roles = await _rolService.ObtenerTodosRolesAsync() ?? new List<Rol>();
+            cargando = false;
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al cargar roles: {ex.Message}", Severity.Error);
+            roles = new List<Rol>();
+            cargando = false;
+        }
+    }
+
+    private void CrearRol()
+    {
+        navManagers.NavigateTo("/Crear-rol");
+    }
+
+    private void EditarRol(int idRol)
+    {
+        navManagers.NavigateTo($"/actualizar-rol/{idRol}");
+    }
+
+    private async Task EliminarRol(int idRol)
+    {
+        try
+        {
+            cargando = true;
+            var resultado = await _rolService.EliminarRolAsync(idRol);
+
+            if (resultado.Exito)
+            {
+                await Task.Delay(1000); // delay antes de recargar
+                Snackbar.Add("Rol eliminado correctamente.", Severity.Success);
+                mensajeError = string.Empty;
+                await CargarRoles();
+                cargando = false;
+            }
+            else
+            {
+                cargando = false;
+                //mensajeError = resultado.Error ?? "Error desconocido al eliminar rol.";
+                Snackbar.Add($"Error: {resultado.Error}.", Severity.Error);
+                mensajeExito = string.Empty;
+            }
+        }
+        catch (Exception ex)
+        {
+            //mensajeError = $"Error inesperado al eliminar rol: {ex.Message}";
+            Snackbar.Add($"Error inesperado al eliminar rol: {ex.Message}", Severity.Error);
+            mensajeExito = string.Empty;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.components.webview\\10.0.0\\staticwebassets\\blazor.modules.json",
+      "PackagePath": "staticwebassets\\_framework\\blazor.modules.json"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.components.webview\\10.0.0\\staticwebassets\\blazor.webview.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webview.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\obj\\Release\\net10.0-windows10.0.19041.0\\win-x64\\scopedcss\\bundle\\Marinela.styles.css",
+      "PackagePath": "staticwebassets\\Marinela.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\Images\\Osito_Bimbo-dialogo.png",
+      "PackagePath": "staticwebassets\\Images\\Osito_Bimbo-dialogo.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\Images\\osito_bimbo.png",
+      "PackagePath": "staticwebassets\\Images\\osito_bimbo.png"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\app.css",
+      "PackagePath": "staticwebassets\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\audio\\-Error-.mp3",
+      "PackagePath": "staticwebassets\\audio\\-Error-.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\audio\\alert.mp3",
+      "PackagePath": "staticwebassets\\audio\\alert.mp3"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\js\\alarma.js",
+      "PackagePath": "staticwebassets\\js\\alarma.js"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Asus\\Documents\\Visual Studio 2017\\Marinela\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "obj\\Release\\net10.0-windows10.0.19041.0\\win-x64\\staticwebassets\\msbuild.Marinela.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0-windows10.0.19041.0\\win-x64\\staticwebassets\\msbuild.Marinela.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0-windows10.0.19041.0\\win-x64\\staticwebassets\\msbuild.build.Marinela.props",
+      "PackagePath": "build\\Marinela.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0-windows10.0.19041.0\\win-x64\\staticwebassets\\msbuild.buildMultiTargeting.Marinela.props",
+      "PackagePath": "buildMultiTargeting\\Marinela.props"
+    },
+    {
+      "Id": "obj\\Release\\net10.0-windows10.0.19041.0\\win-x64\\staticwebassets\\msbuild.buildTransitive.Marinela.props",
+      "PackagePath": "buildTransitive\\Marinela.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

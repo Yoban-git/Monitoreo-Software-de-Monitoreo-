@@ -1,0 +1,105 @@
+@page "/cargar-excel"
+@using Marinela.Models.DatosExcel
+@using Marinela.ViewModels.DatosExcelController
+@inject DatosExcelService ExcelService
+@inject NavigationManager NavManager
+@inject ISnackbar Snackbar
+<h3>Cargar archivo Excel</h3>
+
+<InputFile OnChange="OnFileChange" />
+<button @onclick="GuardarEnBD" disabled=@guardando
+    style="background-color: green; color: white; border: none; border-radius: 4px; cursor: pointer; padding: 8px 16px;">
+    <samp class="bi bi-filetype-exe"> @(guardando ? " Guardando..." : " Guardar en BD")</samp>
+</button>
+<button @onclick="LimpiarExcel" 
+    style="background-color: red; color: white; border: none; border-radius: 4px; cursor: pointer; padding: 8px 16px; margin-left: 10px;">
+    <samp class="bi bi-trash"> Eliminar todos los datos</samp>
+</button>
+
+
+@if (datos.Any())
+{
+    <MudTable Items="datos">
+        <HeaderContent>
+            <MudTh>TagSensor</MudTh>
+            <MudTh>Dato</MudTh>
+            <MudTh>Creado_En</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="TagSensor">@context.TagSensor</MudTd>
+            <MudTd DataLabel="Dato">@context.Dato</MudTd>
+            <MudTd DataLabel="Creado">@context.Creado_En</MudTd>
+        </RowTemplate>
+    </MudTable>
+}
+
+@code {
+    private List<DatoExcel> datos = new();
+    private bool guardando = false;
+
+    private async Task OnFileChange(InputFileChangeEventArgs e)
+{
+    var file = e.File;
+    using var stream = file.OpenReadStream();
+    using var ms = new MemoryStream();
+    await stream.CopyToAsync(ms);
+
+    using var workbook = new ClosedXML.Excel.XLWorkbook(ms);
+    var worksheet = workbook.Worksheet(1);
+
+    datos.Clear();
+    foreach (var row in worksheet.RowsUsed().Skip(1))
+    {
+        // Fecha directamente como DateTime
+        DateTime fechaParseada = row.Cell(3).DataType == ClosedXML.Excel.XLDataType.DateTime
+            ? row.Cell(3).GetDateTime()
+            : DateTime.Parse(row.Cell(3).GetString().Trim(), new System.Globalization.CultureInfo("es-MX"));
+
+        // Dato como double redondeado a 2 decimales
+        double datoValor = Math.Round(
+            row.Cell(2).DataType == ClosedXML.Excel.XLDataType.Number
+                ? row.Cell(2).GetDouble()
+                : double.Parse(row.Cell(2).GetString(), System.Globalization.CultureInfo.InvariantCulture),
+            2);
+
+        datos.Add(new DatoExcel
+        {
+            TagSensor = row.Cell(1).GetString(),
+            Dato = datoValor,
+            Creado_En = fechaParseada
+        });
+    }
+}
+
+
+    private async Task GuardarEnBD()
+{
+    guardando = true;
+    await ExcelService.GuardarDatosAsync(datos);
+    await Task.Delay(3000); // Pequeña espera para asegurar que los datos se guarden antes de navegar
+    NavManager.NavigateTo("/Ver-sensores");
+    Snackbar.Add("Datos guardados exitosamente", Severity.Success);
+}
+    private async Task LimpiarExcel()
+    {
+        try
+        {
+            var resultado = await ExcelService.EliminarDatosExcelAsync();
+
+            if (resultado)
+            {
+                datos.Clear();
+                Snackbar.Add("Todos los datos de Excel fueron eliminados", Severity.Success);
+            }
+            else
+            {
+                Snackbar.Add("No hay datos para borrar", Severity.Warning);
+            }
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add($"Error al eliminar datos: {ex.Message}", Severity.Error);
+        }
+    }
+
+}

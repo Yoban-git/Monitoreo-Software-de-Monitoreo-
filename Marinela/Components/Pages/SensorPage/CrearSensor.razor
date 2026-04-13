@@ -1,0 +1,76 @@
+@page "/crear-sensor"
+@using Marinela.Models.Sensores
+@using Marinela.ViewModels.SensorController
+
+@inject SensorService SensorController
+@inject NavigationManager navManagers
+@inject ISnackbar Snackbar
+
+<h3>Crear nuevo sensor</h3>
+
+@if (!string.IsNullOrEmpty(mensajeExito))
+{
+    <div class="alert alert-success">@mensajeExito</div>
+}
+@if (!string.IsNullOrEmpty(mensajeError))
+{
+    <div class="alert alert-danger">@mensajeError</div>
+}
+
+<EditForm Model="nuevoSensor" OnValidSubmit="GuardarSensor">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <InputText id="nombre" class="form-control" @bind-Value="nuevoSensor.Nombre" />
+    </div>
+
+    <div class="mb-3">
+        <label for="tag" class="form-label">Tag</label>
+        <InputText id="tag" class="form-control" @bind-Value="nuevoSensor.Tag" />
+    </div>
+
+    <div class="mb-3">
+        <label for="valorMinimo" class="form-label">Valor Minimo</label>
+        <InputNumber id="valorMinimo" class="form-control" @bind-Value="nuevoSensor.ValorMinimo" />
+    </div>
+
+    <div class="mb-3">
+        <label for="valorMaximo" class="form-label">Valor Maximo</label>
+        <InputNumber id="valorMaximo" class="form-control" @bind-Value="nuevoSensor.ValorMaximo" />
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-danger" @onclick="Cancelar">Cancelar</button>
+</EditForm>
+
+@code {
+    private Sensor nuevoSensor = new Sensor();
+    private string mensajeExito = string.Empty;
+    private string mensajeError = string.Empty;
+
+    private async Task GuardarSensor()
+    {
+            var resultado = await SensorController.GuardarSensorAsync(nuevoSensor);
+
+            if (resultado.Exito)
+            {
+                mensajeExito = "Sensor creado correctamente.";
+                Snackbar.Add("Sensor creado correctamente", Severity.Success);
+                mensajeError = string.Empty;
+                nuevoSensor = new Sensor(); // limpiar formulario
+                navManagers.NavigateTo("/sensores-list");
+            }
+            else
+            {
+                mensajeError = resultado.Error;
+                Snackbar.Add($"Error: {resultado.Error}", Severity.Error);
+                mensajeExito = string.Empty;
+            }
+    }
+    private void Cancelar()
+    {
+        navManagers.NavigateTo("/sensores-list");
+    }
+}

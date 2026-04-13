@@ -1,0 +1,205 @@
+@page "/sensores-list"
+@using Marinela.Models.Sensores
+@using Marinela.Shared
+@using Marinela.ViewModels.Login
+@using Marinela.ViewModels.SensorController
+
+@inject SensorService SensorController
+@inject NavigationManager navManagers
+@inject AuthService _AuthService
+@inject ISnackbar Snackbar
+
+<h3>Lista de Sensores</h3>
+
+@if (cargando)
+{
+    <p>Cargando...</p>
+}
+else if (!string.IsNullOrEmpty(mensajeExito))
+{
+    <div class="alert alert-success">@mensajeExito</div>
+}
+else if (!string.IsNullOrEmpty(mensajeError))
+{
+    <div class="alert alert-danger">@mensajeError</div>
+}
+
+@if (sensores == null)
+{
+    <p>Cargando Sensores...</p>
+}
+else if (!sensores.Any())
+{
+    <div class="text-center mb-3">
+        <Spinner />
+        <p>Cargando Sensores...</p>
+    </div>
+}
+else
+{
+    @if (_AuthService.TienePermiso("Agregar_Sensores"))
+    {
+        <div class="text-center mb-3">
+            <button class="btn btn-success" @onclick="AgregarSensor">Agregar Sensor</button>
+        </div>
+    }
+    <!-- Caja de búsqueda -->
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar sensor..."
+            @bind="searchText" />
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Tag</th>
+                <th>Valor Mínimo</th>
+                <th>Valor Máximo</th>
+                <th>Creado En</th>
+                <th>Modificado En</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in SensoresPaginados)
+            {
+                <tr>
+                    <td>@s.Nombre</td>
+                    <td>@s.Tag</td>
+                    <td>@s.ValorMinimo</td>
+                    <td>@s.ValorMaximo</td>
+                    <td>@s.Creado_En</td>
+                    <td>@s.Modificado_En</td>
+                    <td>@(s.Activo ? "Activo" : "Inactivo")</td>
+                    <td>
+                        @if (_AuthService.TienePermiso("Activar_Sensor"))
+                        {
+                            <button class="btn @(s.Activo ? "btn-danger" : "btn-success") btn-sm me-2"
+                                    @onclick="() => CambiarEstado(s.IdSensor)">
+                                    <span class="bi bi-power"> @(s.Activo ? " Desactivar" : " Activar")</span>
+                            </button>
+                        }
+                        @if (_AuthService.TienePermiso("Editar_DatoSensor"))
+                        {
+                            <button class="btn btn-warning btn-sm" @onclick="() => EditarSensor(s.IdSensor)">
+                                <span class="bi bi-pencil-square"> Editar</span>
+                            </button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Paginación -->
+    <nav aria-label="Paginación de sensores">
+        <ul class="pagination justify-content-center">
+
+            <li class="page-item @(paginaActual == 1 ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual - 1)">
+                    &laquo; Anterior
+                </button>
+            </li>
+
+            @for (int i = 1; i <= TotalPaginas; i++)
+            {
+                var numeroPagina = i;
+                <li class="page-item @(paginaActual == numeroPagina ? "active" : "")">
+                    <button class="page-link" @onclick="() => CambiarPagina(numeroPagina)">
+                        @numeroPagina
+                    </button>
+                </li>
+            }
+
+            <li class="page-item @(paginaActual == TotalPaginas ? "disabled" : "")">
+                <button class="page-link" @onclick="() => CambiarPagina(paginaActual + 1)">
+                    Siguiente &raquo;
+                </button>
+            </li>
+
+        </ul>
+        <p class="text-center text-muted small">
+            Página @paginaActual de @TotalPaginas — @sensores.Count sensores en total
+        </p>
+    </nav>
+}
+
+@code {
+    private List<Sensor> sensores = new();
+    private bool cargando = false;
+    private string mensajeExito = string.Empty;
+    private string? mensajeError = string.Empty;
+    private string searchText = string.Empty;
+    
+    // --- Filtro ---
+    private IEnumerable<Sensor> SensoresFiltrados =>
+        string.IsNullOrWhiteSpace(searchText)
+            ? sensores
+            : sensores.Where(s =>
+                   (s.Nombre != null && s.Nombre.Contains(searchText, StringComparison.OrdinalIgnoreCase)) ||
+                   (s.Tag != null && s.Tag.Contains(searchText, StringComparison.OrdinalIgnoreCase)));
+    //----------
+    // --- Paginación ---
+    private int paginaActual = 1;
+    private int tamanioPagina = 10;
+
+    private int TotalPaginas => (int)Math.Ceiling((double)SensoresFiltrados.Count() / tamanioPagina);
+
+    private IEnumerable<Sensor> SensoresPaginados =>
+        SensoresFiltrados.Skip((paginaActual - 1) * tamanioPagina).Take(tamanioPagina);
+    // ------------------
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            await Task.Delay(2000);
+            if (_AuthService.TienePermiso("Ver_Sensores"))
+                sensores = await SensorController.ListarSensoresAsync();
+
+            if (_AuthService.TienePermiso("Ver_Sensores_Activos"))
+                sensores = await SensorController.ListarSensoresActivosAsync();
+            }
+        catch(Exception ex)
+        {
+            Snackbar.Add($"Error al cargar los sensores: {ex.Message}", Severity.Error);
+        }
+    }
+
+    private void CambiarPagina(int pagina)
+    {
+        if (pagina < 1 || pagina > TotalPaginas) return;
+        paginaActual = pagina;
+    }
+
+    private async Task CambiarEstado(int idSensor)
+    {
+        var resultado = await SensorController.CambiarEstadoSensorAsync(idSensor);
+        if (resultado.Exito)
+        {
+            mensajeError = string.Empty;
+            cargando = true;
+            Snackbar.Add("Estado cambiado correctamente", Severity.Success);
+            await Task.Delay(1000);
+            sensores = await SensorController.ListarSensoresAsync();
+            paginaActual = 1; // Regresa a la primera página al recargar
+            cargando = false;
+        }
+        else
+        {
+            mensajeError = resultado.Error;
+            mensajeExito = string.Empty;
+        }
+    }
+
+    private void AgregarSensor()
+    {
+        navManagers.NavigateTo("/crear-sensor");
+    }
+
+    private void EditarSensor(int idSensor)
+    {
+        navManagers.NavigateTo($"/editar-sensor/{idSensor}");
+    }
+}

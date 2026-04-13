@@ -1,0 +1,98 @@
+﻿@inherits LayoutComponentBase
+<MudThemeProvider/>
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/> <!-- ← esto es lo que renderiza los toasts -->
+
+
+<div class="page">
+        <NavMenu />
+    <main>
+        <article class="page-content">
+            @Body
+        </article>
+    </main>
+</div>
+
+<style>
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  transition: margin-left 0.3s ease;
+}
+
+/* Ajuste del contenido cuando el sidebar está visible */
+.sidebar.sidebar-visible ~ main {
+  margin-left: 250px;
+}
+
+.top-row {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #d6d5d5;
+  justify-content: flex-end;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.top-row ::deep a,
+.top-row ::deep .btn-link {
+  white-space: nowrap;
+  margin-left: 1.5rem;
+  text-decoration: none;
+}
+
+.top-row ::deep a:hover,
+.top-row ::deep .btn-link:hover {
+  text-decoration: underline;
+}
+
+.top-row ::deep a:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@@media (max-width: 640.98px) {
+  .top-row {
+    justify-content: space-between;
+  }
+  .top-row ::deep a,
+  .top-row ::deep .btn-link {
+    margin-left: 0;
+  }
+}
+
+@@media (min-width: 641px) {
+  .page {
+    flex-direction: row;
+  }
+  .top-row {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .top-row.auth ::deep a:first-child {
+    flex: 1;
+    text-align: right;
+    width: 0;
+  }
+  .top-row,
+  article {
+    padding-left: 2rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+  .page {
+      margin-top: 10px;
+      margin-left: 64px;
+      transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+.sidebar.expanded ~ .page-content {
+    margin-left: var(--sidebar-w-expanded);
+}
+</style>
